@@ -26,9 +26,11 @@ public class GridManager : MonoBehaviour
     {
         blocks = new GameObject[25];
 
-        Vector3 pos = new Vector3(Mathf.Floor(xRows/2),Mathf.Floor(yRows/2), 0f);
+        Vector3 pos = new Vector3(Mathf.Floor(xRows/2) * -(blockWidth + borderWidth),Mathf.Floor(yRows/2) * (blockHeight + borderHieght), 0f);
         if (xRows % 2 != 0)
             pos.x = -(blockWidth / 2);
+        if (yRows % 2 != 0)
+            pos.y = blockHeight / 2;
 
         for (int i = 1; i <= yRows; i++)
         {
@@ -40,8 +42,10 @@ public class GridManager : MonoBehaviour
                 pos.x += blockWidth + 1;
             }
 
-            pos.y -= blockHeight + 1;
-            pos.x = -(gridWidth / 2f + blockWidth / 2f);
+            pos.y -= blockHeight + borderHieght;
+            pos.x = Mathf.Floor(xRows / 2) * -(blockWidth + borderWidth);
+            if (xRows % 2 != 0)
+                pos.x = -(blockWidth / 2);
         }
     }
 }
