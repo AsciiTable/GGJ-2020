@@ -10,6 +10,11 @@ public class ObjectPooler : MonoBehaviour
     //List that's going to hold all the object
     [SerializeField] protected List<GameObject> objectPool = new List<GameObject>();
 
+    private void Start()
+    {
+        FillPool()
+    }
+
     public void FillPool()
     {
         while(objectPool.Count < poolSize)
