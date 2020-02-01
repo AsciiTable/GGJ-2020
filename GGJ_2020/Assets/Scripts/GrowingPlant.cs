@@ -19,7 +19,7 @@ public class GrowingPlant : DayHandler
         Debug.Log("Growing Plant Subscribed!");
     }
 
-    protected void giveLifeToPlant() {
+    public void giveLifeToPlant() {
         occupiedBlock = gameObject.GetComponentInParent<Block>();
         growthStartDate = Plant.dayCount;
     }

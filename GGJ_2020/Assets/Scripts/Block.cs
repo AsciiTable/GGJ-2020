@@ -23,8 +23,17 @@ public class Block : MonoBehaviour
 
         occupied = true;
 
-        ObjectPooler[] pools = FindObjectsOfType<ObjectPooler>();                                                                                                                                                                                                                    
-
+        PlantPooler[] pools = FindObjectsOfType<PlantPooler>();
+        foreach(PlantPooler pool in pools)
+        {
+            if (wantedPlant == pool.ID)
+            {
+                GameObject plant = pool.GetObject();
+                plant.GetComponent<GrowingPlant>().giveLifeToPlant();
+                plant.transform.parent = transform;
+                plant.SetActive(true);
+            }
+        }
         return true;
     }
 }
