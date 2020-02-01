@@ -7,8 +7,17 @@ using UnityEngine.EventSystems;
 
 public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 {
+    public Image img;
+
+    public Seed seed;
+
+    void Start() {
+        img = this.gameObject.GetComponent<Image>();
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
+        
         transform.position = Input.mousePosition;
     }
 
@@ -16,5 +25,7 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         Debug.Log("Dropped");
         transform.localPosition = Vector3.zero;
+        seed.PlaceSeed();
+
     }
 }
