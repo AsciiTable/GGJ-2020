@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    public bool occupied = false;
+    [Header("Current Data")]
+    public Structs.id plant = Structs.id.empty;
+    
+    [Header("Content")]
+    [Tooltip("The object that will content the block")]
+    [SerializeField] private Structs.id wantedPlant = Structs.id.basicSeed;
     public bool content = false;
 
-    [Tooltip("The object that will content the block")]
-    public Structs.id wantedPlant = Structs.id.basicSeed;
-
-    public void Place()
+    public bool Place(Structs.id seed)
     {
-        
+        if (plant != Structs.id.empty)
+            return false;
+
+        plant = seed;
+        return true;
     }
 }
