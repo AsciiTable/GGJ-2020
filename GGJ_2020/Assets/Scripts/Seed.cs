@@ -22,7 +22,7 @@ public class Seed : MonoBehaviour
     {
         quantity--;
     }
-    public void incrimentQuantity()
+    public void incrementQuantity()
     {
         quantity++;
     }
