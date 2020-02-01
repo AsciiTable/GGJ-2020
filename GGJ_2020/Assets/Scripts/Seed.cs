@@ -28,7 +28,7 @@ public class Seed : MonoBehaviour
             RaycastHit2D rayHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
             if (rayHit) {
                 Debug.Log(rayHit.transform.name);
-                if (rayHit.transform.childCount == 0)
+                if (rayHit.transform.childCount == 0 && getQuantity() > 0)
                 {
                     Debug.Log("Planted");
                     decrementQuantity();
@@ -49,17 +49,21 @@ public class Seed : MonoBehaviour
     public void setQuantity(int quant) {
         if (quantity < 0)
             quantity = 0;
+        else if (quantity > 99)
+            quantity = 99;
         else
             quantity = quant;
     }
 
     public void decrementQuantity() 
     {
-        quantity--;
+        if(quantity > 0)
+            quantity--;
     }
     public void incrementQuantity()
     {
-        quantity++;
+        if(quantity < 99)
+            quantity++;
     }
 
     public float getPrice() {

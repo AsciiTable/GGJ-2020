@@ -17,15 +17,16 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        
-        transform.position = Input.mousePosition;
+        if (seed.getQuantity() > 0)
+            transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("Dropped");
         transform.localPosition = Vector3.zero;
-        seed.PlaceSeed();
+        if(seed.getQuantity() > 0)
+            seed.PlaceSeed();
 
     }
 }
