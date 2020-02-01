@@ -7,7 +7,6 @@ public class Seed : MonoBehaviour
     protected int quantity = 0;
     protected float price = 0f;
     protected string seedName = "";
-
     public int getQuantity() {
         return quantity;
     }
@@ -19,8 +18,13 @@ public class Seed : MonoBehaviour
             quantity = quant;
     }
 
-    public void decrementQuantity() {
+    public void decrementQuantity() 
+    {
         quantity--;
+    }
+    public void incrimentQuantity()
+    {
+        quantity++;
     }
 
     public float getPrice() {
