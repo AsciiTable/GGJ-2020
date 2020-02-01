@@ -23,7 +23,7 @@ public class Block : MonoBehaviour
 
         occupied = true;
 
-        ObjectPooler[] pools = FindObjectsOfType<ObjectPooler>();                                                                                                                                                                                                                    z
+        ObjectPooler[] pools = FindObjectsOfType<ObjectPooler>();                                                                                                                                                                                                                    
 
         return true;
     }
