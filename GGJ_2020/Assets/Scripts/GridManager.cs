@@ -5,7 +5,7 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     [Header("Blocks")]
-    public GameObject[] blocks;
+    public GameObject[,] blocks;
 
     [Header("Initialization")]
     [SerializeField] private GameObject blockPrefab;
@@ -24,7 +24,6 @@ public class GridManager : MonoBehaviour
 
     private void DropBlocks()
     {
-        blocks = new GameObject[25];
 
         Debug.Log(xRows % 2 > 0);
 
@@ -34,13 +33,14 @@ public class GridManager : MonoBehaviour
         if (yRows % 2 == 0)
             pos.y -= blockHeight / 2f;
 
-        for (int i = 1; i <= yRows; i++)
+        for (int i = 1; i <= blocks.GetLength(1); i++)
         {
-            for(int j = 1; j <= xRows; j++)
+            for(int j = 1; j <= blocks.GetLength(2); j++)
             {
-                GameObject block = Instantiate(blockPrefab);
-                block.transform.position = pos;
-                block.transform.localScale = new Vector3(blockWidth, blockHeight, 1f);
+                if(blocks[i,j] == null)
+                    blocks[i,j] = Instantiate(blockPrefab);
+                blocks[i,j].transform.position = pos;
+                blocks[i,j].transform.localScale = new Vector3(blockWidth, blockHeight, 1f);
 
                 pos.x += blockWidth + borderWidth;
             }

@@ -7,6 +7,8 @@ public class Seed : MonoBehaviour
     protected int quantity = 0;
     protected float price = 0f;
     protected string seedName = "";
+    protected Structs.id ID;
+
     public int getQuantity() {
         return quantity;
     }

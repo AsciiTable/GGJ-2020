@@ -6,6 +6,7 @@ public struct Structs
 {
     public enum id
     {
-        basicSeed = 0
+        empty = 0,
+        basicSeed = 1
     }
 }
