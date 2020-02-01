@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Tree : GrowingPlant
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void HandleNewDayUpdate()
     {
-
+        Debug.Log("Tree Subscribed!");
+        if (Plant.dayCount - growthStartDate >= this.growTime) {
+            Debug.Log("Tree fully grown");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

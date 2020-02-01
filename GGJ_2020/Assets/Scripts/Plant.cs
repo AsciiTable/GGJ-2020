@@ -2,12 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
-public abstract class Plant : MonoBehaviour
+public class Plant : MonoBehaviour
 {
-    [SerializeField] protected string plantName;
-    [SerializeField] protected int growthTime;
-    [SerializeField] protected int spreadTime;
-    [SerializeField] protected bool destroyable;
-    protected Block occupiedBlock;
+    public static int dayCount;
+    public Button nextDayButton;
+    public Action OnDayAdvance;
+
+    private void Start()
+    {
+        nextDayButton.onClick.AddListener(UpdateOnAdvance);
+    }
+
+/*    private void OnEnable()
+    {
+        UpdateHandler.UpdateOccurred += UpdateOnAdvance;
+        Debug.Log("From Plant");
+    }
+
+    private void OnDisable()
+    {
+        UpdateHandler.UpdateOccurred -= UpdateOnAdvance;
+        Debug.Log("Disable From Plant");
+    }*/
+
+    private void UpdateOnAdvance() {
+        Debug.Log("Heard!!");
+        if (OnDayAdvance != null) {
+            OnDayAdvance();
+            dayCount++;
+            Debug.Log("Day Advances: " + dayCount);
+        }
+            
+    }
 }
