@@ -4,14 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ItemDragManager : MonoBehaviour, IDragHandler, IEndDragHandler
+
+public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = Input.mousePosition;
     }
 
-    public void OnEndDrag(PointerEventData eventData) {
+    public void OnEndDrag(PointerEventData eventData)
+    {
         Debug.Log("Dropped");
         transform.localPosition = Vector3.zero;
     }
