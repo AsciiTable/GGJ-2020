@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    [Header("Blocks")]
+    [Header("Block List")]
+    [SerializeField] private BlockPooler objectPooler = null;
     public GameObject[,] blocks;
 
-    [Header("Initialization")]
-    [SerializeField] private GameObject blockPrefab;
-    [Space(5)]
+    [Header("Update Blocks")]
+    //[SerializeField] private GameObject blockPrefab = null;
+    [Space(20)]
     [SerializeField] private float borderWidth = 1f;
     [SerializeField] private float borderHieght = 1f;
     [SerializeField] private float blockWidth = 1f;
@@ -17,38 +18,87 @@ public class GridManager : MonoBehaviour
     [SerializeField] private int xRows = 5;
     [SerializeField] private int yRows = 5;
 
-    void Start()
+    private void Start()
     {
-        DropBlocks();
+        UpdateBlocks();
     }
 
-    private void DropBlocks()
+    private float OriginX
     {
+        get { return Mathf.Floor(xRows / 2f) * -(blockWidth + borderWidth); }
+    }
+    private float OriginY
+    {
+        get { return Mathf.Floor(yRows / 2f) * (blockHeight + borderHieght); }
+    }
 
-        Debug.Log(xRows % 2 > 0);
 
-        Vector3 pos = new Vector3(Mathf.Floor(xRows/2f) * -(blockWidth + borderWidth),Mathf.Floor(yRows/2f) * (blockHeight + borderHieght), 0f);
+    [ContextMenu("Update Blocks")]
+    private void UpdateBlocks()
+    {
+        //Clear out blocks array to new xyRow sizes
+        blocks = new GameObject[yRows, xRows];
+        objectPooler.ClearPool();
+        UpdatePool();
+
+        //Get to the top the position of the top left screen
+        Vector3 pos = new Vector3(OriginX, OriginY, 0f);
         if (xRows % 2 == 0)
             pos.x += blockWidth / 2f;
         if (yRows % 2 == 0)
             pos.y -= blockHeight / 2f;
 
-        for (int i = 1; i <= blocks.GetLength(1); i++)
+        for (int r = 0; r < blocks.GetLength(0); r++)
         {
-            for(int j = 1; j <= blocks.GetLength(2); j++)
+            for (int c = 0; c < blocks.GetLength(1); c++)
             {
-                if(blocks[i,j] == null)
-                    blocks[i,j] = Instantiate(blockPrefab);
-                blocks[i,j].transform.position = pos;
-                blocks[i,j].transform.localScale = new Vector3(blockWidth, blockHeight, 1f);
+                blocks[r, c].transform.position = pos;
+                blocks[r, c].transform.localScale = new Vector3(blockWidth, blockHeight, 1f);
 
                 pos.x += blockWidth + borderWidth;
             }
 
             pos.y -= blockHeight + borderHieght;
-            pos.x = Mathf.Floor(xRows / 2f) * -(blockWidth + borderWidth);
+            pos.x = OriginX;
             if (xRows % 2 == 0)
                 pos.x += blockWidth / 2f;
         }
+    }
+    
+    private void UpdatePool()
+    {
+        for (int r = 0; r < yRows; r++)
+            for(int c = 0; c < xRows; c++)
+            {
+                foreach (GameObject obj in objectPooler.GetPool())
+                {
+                    if (!obj.activeInHierarchy)
+                    {
+                        if (!obj.GetComponent<Block>().newBlock)
+                        {
+                            if (obj.GetComponent<Block>().row == (r + 1) && obj.GetComponent<Block>().column == (c + 1))
+                            {
+                                Debug.Log("Its working");
+                                blocks[r, c] = obj;
+                                obj.SetActive(true);
+                            }
+                        }
+                    }
+                }
+                if (blocks[r, c] == null)
+                    blocks[r, c] = MakeBlock(r + 1, c + 1);
+            }
+    }
+    private GameObject MakeBlock(int row, int column)
+    {
+        GameObject obj = objectPooler.GetBlock();
+        obj.SetActive(true);
+
+        Block block = obj.GetComponent<Block>();
+        block.row = row;
+        block.column = column;
+        block.newBlock = false;
+
+        return obj;
     }
 }

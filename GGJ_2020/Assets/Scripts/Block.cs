@@ -12,6 +12,11 @@ public class Block : MonoBehaviour
     [SerializeField] private Structs.id wantedPlant = Structs.id.basicSeed;
     public bool content = false;
 
+    [Header("Grid ID")]
+    public bool newBlock = true;
+    public int row = 0;
+    public int column = 0;
+
     public bool Place(Structs.id seed)
     {
         if (plant != Structs.id.empty)
