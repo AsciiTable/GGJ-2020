@@ -7,7 +7,7 @@ public class Block : MonoBehaviour
     
     [Header("Content")]
     [Tooltip("The object that will content the block")]
-    [SerializeField] private Structs.id wantedPlant = Structs.id.basicSeed;
+    [SerializeField] private Structs.id wantedPlant = Structs.id.empty;
     public bool content = false;
     public bool occupied = false;
 
