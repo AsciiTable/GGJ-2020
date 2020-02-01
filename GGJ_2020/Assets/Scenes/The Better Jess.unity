@@ -236,8 +236,10 @@ MonoBehaviour:
   blocks: []
   blockPrefab: {fileID: 237148332900226668, guid: 6ab91b4f5bff9014097de7ed13550035,
     type: 3}
-  gridWidth: 10
-  gridHeight: 10
+  borderWidth: 1
+  borderHieght: 1
+  blockWidth: 2
+  blockHeight: 2
   xRows: 5
   yRows: 5
 --- !u!4 &886711381

@@ -26,11 +26,13 @@ public class GridManager : MonoBehaviour
     {
         blocks = new GameObject[25];
 
-        Vector3 pos = new Vector3(Mathf.Floor(xRows/2) * -(blockWidth + borderWidth),Mathf.Floor(yRows/2) * (blockHeight + borderHieght), 0f);
-        if (xRows % 2 != 0)
-            pos.x = -(blockWidth / 2);
-        if (yRows % 2 != 0)
-            pos.y = blockHeight / 2;
+        Debug.Log(xRows % 2 > 0);
+
+        Vector3 pos = new Vector3(Mathf.Floor(xRows/2f) * -(blockWidth + borderWidth),Mathf.Floor(yRows/2f) * (blockHeight + borderHieght), 0f);
+        if (xRows % 2 == 0)
+            pos.x += blockWidth / 2f;
+        if (yRows % 2 == 0)
+            pos.y -= blockHeight / 2f;
 
         for (int i = 1; i <= yRows; i++)
         {
@@ -39,13 +41,14 @@ public class GridManager : MonoBehaviour
                 GameObject block = Instantiate(blockPrefab);
                 block.transform.position = pos;
                 block.transform.localScale = new Vector3(blockWidth, blockHeight, 1f);
-                pos.x += blockWidth + 1;
+
+                pos.x += blockWidth + borderWidth;
             }
 
             pos.y -= blockHeight + borderHieght;
-            pos.x = Mathf.Floor(xRows / 2) * -(blockWidth + borderWidth);
-            if (xRows % 2 != 0)
-                pos.x = -(blockWidth / 2);
+            pos.x = Mathf.Floor(xRows / 2f) * -(blockWidth + borderWidth);
+            if (xRows % 2 == 0)
+                pos.x += blockWidth / 2f;
         }
     }
 }
