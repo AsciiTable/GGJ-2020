@@ -7,6 +7,8 @@ public struct Structs
     public enum id
     {
         empty = 0,
-        basicSeed = 1
+        grass = 1,
+        flower = 2,
+        tree = 3
     }
 }

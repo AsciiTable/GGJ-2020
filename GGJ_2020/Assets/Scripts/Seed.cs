@@ -18,7 +18,7 @@ public class Seed : MonoBehaviour
         origin = this.gameObject.transform.position;
     }
 
-    public void PlaceSeed()
+    public Block PlaceSeed()
     {
         Vector3 mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, zAxisPos - Camera.main.transform.position.z);
         mouse = Camera.main.ScreenToWorldPoint(mouse);
@@ -28,18 +28,24 @@ public class Seed : MonoBehaviour
             RaycastHit2D rayHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
             if (rayHit) {
                 Debug.Log(rayHit.transform.name);
-                if (rayHit.transform.childCount == 0 && getQuantity() > 0)
-                {
-                    Debug.Log("Planted");
-                    decrementQuantity();
+                if (rayHit.transform.gameObject.GetComponent<Block>() != null) {
+                    if (rayHit.transform.childCount == 0 && getQuantity() > 0)
+                    {
+                        Debug.Log("Planted");
+                        decrementQuantity();
+                        return rayHit.transform.gameObject.GetComponent<Block>();
+                    }
+                    else
+                    {
+                        Debug.Log("Already Occupied!");
+                        return null;
+                    }
                 }
-                else {
-                    Debug.Log("Already Occupied!");
-                }
+
             }
-                
             this.gameObject.transform.position = origin;
         }
+        return null;
     }
 
     public int getQuantity() {

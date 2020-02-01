@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    [Header("Current Data")]
-    public Structs.id plant = Structs.id.empty;
     
     [Header("Content")]
     [Tooltip("The object that will content the block")]
     [SerializeField] private Structs.id wantedPlant = Structs.id.basicSeed;
     public bool content = false;
+    public bool occupied = false;
 
     [Header("Grid ID")]
     public bool newBlock = true;
@@ -19,10 +18,13 @@ public class Block : MonoBehaviour
 
     public bool Place(Structs.id seed)
     {
-        if (plant != Structs.id.empty)
+        if (occupied)
             return false;
 
-        plant = seed;
+        occupied = true;
+
+        ObjectPooler[] po0ps = FindObjectsOfType<ObjectPooler>();
+
         return true;
     }
 }
