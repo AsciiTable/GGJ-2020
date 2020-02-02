@@ -73,9 +73,9 @@ public class LevelHandler : MonoBehaviour
 
     private bool CheckPlants()
     {
-        foreach(GameObject block in blocks)
+        foreach(Block block in FindObjectsOfType<Block>())
         {
-            if (block.activeInHierarchy && !block.GetComponent<Block>().content)
+            if (block.gameObject.activeInHierarchy && !block.GetComponent<Block>().content)
                 return false;
         }
 
