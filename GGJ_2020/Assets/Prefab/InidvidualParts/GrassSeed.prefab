@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27889c17432344b4ea3a022cb1fca052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quantity: 10000
+  quantity: 0
   seedID: 1
   origin: {x: 0, y: 0, z: 0}
