@@ -23,13 +23,17 @@ public class PauseManager : MenuManager
 
     private void Pause()
     {
-        OpenMenu(pauseIndex);
-        Time.timeScale = 0f;
+        if (!menuOpened)
+        {
+            OpenMenu(pauseIndex);
+            Time.timeScale = 0f;
+        }
     }
     private void Unpause()
     {
         CloseMenus();
         Time.timeScale = 1f;
+        menuOpened = false;
     }
 
 }
