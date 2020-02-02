@@ -18,11 +18,6 @@ public class GridManager : MonoBehaviour
     [SerializeField] private int xRows = 5;
     [SerializeField] private int yRows = 5;
 
-    private void Start()
-    {
-        UpdateBlocks();
-    }
-
     private float OriginX
     {
         get { return Mathf.Floor(xRows / 2f) * -(blockWidth + borderWidth); }
