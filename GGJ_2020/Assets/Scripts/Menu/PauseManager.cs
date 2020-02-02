@@ -8,17 +8,29 @@ public class PauseManager : MenuManager
     [SerializeField] private int pauseIndex = 0;
     [SerializeField] private bool isPaused = false;
 
-    void Update()
+    private void OnEnable()
+    {
+        UpdateHandler.UpdateOccurred += PauseInput;
+    }
+    private void OnDisable()
+    {
+        UpdateHandler.UpdateOccurred -= PauseInput;
+    }
+
+    private void PauseInput()
     {
         if (Input.GetButtonDown("Pause"))
-        {
-            isPaused = !isPaused;
+            PauseButton();
+    }
 
-            if (isPaused)
-                Pause();
-            else
-                Unpause();
-        }
+    public void PauseButton()
+    {
+        isPaused = !isPaused;
+
+        if (isPaused)
+            Pause();
+        else
+            Unpause();
     }
 
     private void Pause()
