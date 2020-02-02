@@ -33,7 +33,7 @@ public class LevelHandler : MonoBehaviour
 
     private void CheckLevel()
     {
-        if (CheckSeedless())
+        if (CheckSeedless() && !gameEnded)
         {
             gameEnded = true;
 
@@ -79,12 +79,6 @@ public class LevelHandler : MonoBehaviour
                 return false;
         }
 
-        if (blocks.Length == 0)
-        {
-            Debug.Log("Seeds variable is empty");
-            return false;
-        }
-
         return true;
     }
 
@@ -108,9 +102,9 @@ public class LevelHandler : MonoBehaviour
     {
         background.sprite = winBackground;
 
-        foreach(GameObject block in blocks)
+        foreach(Block block in FindObjectsOfType<Block>())
         {
-            block.GetComponent<SpriteRenderer>().sprite = winSprite;
+            block.gameObject.GetComponent<SpriteRenderer>().sprite = winSprite;
         }
     }
 }

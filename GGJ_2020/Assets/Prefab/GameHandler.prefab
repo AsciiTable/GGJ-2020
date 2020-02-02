@@ -139,8 +139,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEnded: 0
-  loseScreenIndex: 2
-  winScreenIndex: 3
+  loseScreenIndex: 3
+  winScreenIndex: 2
   background: {fileID: 101581638}
   winBackground: {fileID: 21300000, guid: e65fa7bdb983f9a48a763ae92517f0eb, type: 3}
   winSprite: {fileID: 21300000, guid: a386187f4610b2241a5d6de8543b7f4e, type: 3}
