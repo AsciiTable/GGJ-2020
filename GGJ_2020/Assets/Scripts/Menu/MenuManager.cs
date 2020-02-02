@@ -8,6 +8,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Canvas[] menus;
     [SerializeField] private bool openOnStart = true;
 
+    protected bool menuOpened = false;
+
     public int Menus
     {
         get { return menus.Length; }
@@ -26,11 +28,15 @@ public class MenuManager : MonoBehaviour
         foreach(Canvas menu in menus)
         {
             menu.gameObject.SetActive(false);
+            menuOpened = false;
         }
     }
     public void OpenMenu(int index)
     {
         if (menus.Length > index)
+        {
+            menuOpened = true;
             menus[index].gameObject.SetActive(true);
+        }
     }
 }

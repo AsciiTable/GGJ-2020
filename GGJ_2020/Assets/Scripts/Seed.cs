@@ -11,6 +11,11 @@ public class Seed : MonoBehaviour
     protected bool onBlock = false;
     public Vector3 origin;
 
+    public bool hasSeeds
+    {
+        get { return (quantity <= 0); }
+    }
+
     private void Start()
     {
         origin = this.gameObject.transform.position;
