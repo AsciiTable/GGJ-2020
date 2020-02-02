@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PauseManager : MenuManager
 {
+    [Header("Pause Menu")]
     [SerializeField] private int pauseIndex = 0;
     [SerializeField] private bool isPaused = false;
 
