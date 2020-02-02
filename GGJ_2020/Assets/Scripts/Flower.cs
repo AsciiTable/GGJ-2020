@@ -9,8 +9,17 @@ public class Flower : GrowingPlant
     {
         occupiedBlock = associatedSeed.GetOccupiedBlock();
         plantID = Structs.id.flower;
-        occupiedBlock.Place(plantID);
+        if (occupiedBlock != null)
+            occupiedBlock.Place(plantID);
+        else
+            spreadTime = 2;
         destroyable = false;
-        this.gameObject.GetComponent<SpreadingPlant>().Spread();
+    }
+    protected override void HandleNewDayUpdate() {
+        if (spreadTime > 0) {
+            SpreadingPlant sp = gameObject.GetComponent<SpreadingPlant>();
+            sp.Spread();
+            spreadTime = 0;
+        }
     }
 }

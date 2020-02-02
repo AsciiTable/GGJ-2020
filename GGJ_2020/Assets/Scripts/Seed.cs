@@ -17,6 +17,7 @@ public class Seed : MonoBehaviour
         origin = this.gameObject.transform.position;
     }
 
+
     public Block GetOccupiedBlock() {
         Vector3 mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, zAxisPos - Camera.main.transform.position.z);
         mouse = Camera.main.ScreenToWorldPoint(mouse);

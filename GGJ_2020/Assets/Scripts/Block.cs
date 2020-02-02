@@ -33,6 +33,7 @@ public class Block : MonoBehaviour
                 plant.GetComponent<GrowingPlant>().giveLifeToPlant();
                 plant.transform.parent = transform;
                 plant.gameObject.transform.localPosition = new Vector3(0f, 0f, -1f);
+                plant.gameObject.GetComponent<DayHandler>().occupiedBlock = this;
                 plant.SetActive(true);
                 return true;
             }

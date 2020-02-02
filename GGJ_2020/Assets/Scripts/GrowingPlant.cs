@@ -11,7 +11,7 @@ public class GrowingPlant : DayHandler
     [SerializeField] protected bool destroyable;
     [SerializeField] public Seed associatedSeed;
     public Structs.id plantID = Structs.id.empty;
-    protected Block occupiedBlock;
+    //[HideInInspector]public Block occupiedBlock;
     protected int growthStartDate;
     protected int dayOfGrowth;
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class DayHandler : MonoBehaviour
 {
     public Plant daySubscriber;
-
+    [HideInInspector] public Block occupiedBlock;
     public void OnEnable()
     {
         if (daySubscriber == null) {
