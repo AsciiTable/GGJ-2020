@@ -6,7 +6,7 @@ public class Tree : GrowingPlant
 {
     public override void giveLifeToPlant()
     {
-        growTime = 2;
+        growTime = 1;
         occupiedBlock = associatedSeed.GetOccupiedBlock();
         growthStartDate = Plant.dayCount;
         plantID = Structs.id.tree;

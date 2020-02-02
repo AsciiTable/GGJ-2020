@@ -24,7 +24,6 @@ public class Grass : GrowingPlant
         if (Plant.turnAboutToEnd)
         {
             Plant.turnAboutToEnd = false;
-            //
             Plant.callForMaint = false;
             Plant.flowersPlanted = false;
             Debug.Log("END DAY " + Plant.dayCount);

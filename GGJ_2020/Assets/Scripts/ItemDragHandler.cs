@@ -28,10 +28,14 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
             if (seed.PlaceSeed()) {
                 Debug.Log("START DAY " + Plant.dayCount);
                 if (seed.seedID.Equals(Structs.id.flower))
+                {
                     Plant.flowersPlanted = true;
-                Plant.growthNeeds = true;
-                if (!seed.seedID.Equals(Structs.id.flower))
+                    Plant.growthNeeds = false;
+                }
+                else {
+                    Plant.growthNeeds = true;
                     Plant.callForMaint = true;
+                }
                 Plant.turnAboutToEnd = true;
             }  
         }
