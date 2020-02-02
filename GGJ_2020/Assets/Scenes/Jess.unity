@@ -4629,7 +4629,7 @@ MonoBehaviour:
   destroyable: 0
   associatedSeed: {fileID: 245858252}
   plantID: 2
-  isOriginal: 1
+  spreadOnAdd: 1
 --- !u!212 &1816007459
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4705,6 +4705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oPool: {fileID: 1873872550}
+  bOccupied: {fileID: 0}
   gm: {fileID: 177020785}
 --- !u!1 &1873872548
 GameObject:

@@ -15,6 +15,9 @@ public class GrowingPlant : DayHandler
     protected int growthStartDate;
     protected int dayOfGrowth;
 
+    public Block getOBlock() {
+        return occupiedBlock;
+    }
     protected override void HandleNewDayUpdate()
     {
         if (destroyable) {
