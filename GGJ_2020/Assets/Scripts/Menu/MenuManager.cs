@@ -8,6 +8,12 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Canvas[] menus;
     [SerializeField] private bool openOnStart = true;
 
+    public int Menus
+    {
+        get { return menus.Length; }
+    }
+
+
     private void Start()
     {
         CloseMenus();
