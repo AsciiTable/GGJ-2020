@@ -24,6 +24,7 @@ public class GrowingPlant : DayHandler
             Debug.Log("Checking " + plantID +" growth");
             checkGrowth();
             Plant.growthNeeds = false;
+            Plant.callForMaint = true;
         }
     }
 

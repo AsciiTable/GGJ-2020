@@ -30,11 +30,12 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
                 if (seed.seedID.Equals(Structs.id.flower))
                 {
                     Plant.flowersPlanted = true;
-                    Plant.growthNeeds = false;
+                    Plant.growthNeeds = true;
+                    Plant.turnAboutToEnd = true;
                 }
                 else {
                     Plant.growthNeeds = true;
-                    Plant.callForMaint = true;
+                    Plant.callForMaint = false;
                 }
                 Plant.turnAboutToEnd = true;
             }  
