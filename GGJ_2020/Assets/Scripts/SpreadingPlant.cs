@@ -7,17 +7,10 @@ public class SpreadingPlant : MonoBehaviour
 {
     public PlantPooler oPool;
     public Block occupiedBlock;
-    private bool hasSpread;
-    private RaycastHit2D hit;
     public GridManager gm;
 
-    private void OnEnable()
-    {
-        hasSpread = false;
-    }
-
     public void Spread() {
-        occupiedBlock = this.gameObject.GetComponent<Flower>().getOBlock();
+        occupiedBlock = this.gameObject.GetComponent<GrowingPlant>().getOBlock();
         occupiedBlock.GetComponent<BoxCollider2D>().enabled = false;
         Block bUp = checkCollision(Vector2.up);
         Block bRight = checkCollision(Vector2.right);
@@ -61,9 +54,6 @@ public class SpreadingPlant : MonoBehaviour
                                 return hit.transform.gameObject.GetComponent<Block>();
                             }
                         }
-/*                        plant.GetComponent<GrowingPlant>().giveLifeToPlant();
-                        plant.transform.parent = transform;
-                        return hit.transform.gameObject.GetComponent<Block>();*/
                     }
                 }
             }

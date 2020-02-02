@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Block
   - Seed
+  - Grass
   layers:
   - Default
   - TransparentFX

@@ -7,7 +7,6 @@ public class Seed : MonoBehaviour
 {
     public static int zAxisPos = 0;
     [SerializeField] protected int quantity = 0;
-    [SerializeField] protected float price = 0f;
     [SerializeField] public Structs.id seedID;
     protected bool onBlock = false;
     public Vector3 origin;
@@ -97,15 +96,7 @@ public class Seed : MonoBehaviour
             quantity++;
     }
 
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float pri) {
-        price = pri;
-    }
-
     public string toString() {
-        return seedID + "\n$" + price + "\nQuantity: " + quantity;
+        return seedID +  "\nQuantity: " + quantity;
     }
 }

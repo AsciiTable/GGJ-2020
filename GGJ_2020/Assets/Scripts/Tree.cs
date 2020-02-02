@@ -9,7 +9,7 @@ public class Tree : GrowingPlant
         occupiedBlock = associatedSeed.GetOccupiedBlock();
         growthStartDate = Plant.dayCount;
         plantID = Structs.id.tree;
-        occupiedBlock.Place(plantID, true);
+        occupiedBlock.Place(plantID, false);
         destroyable = true;
     }
 }
