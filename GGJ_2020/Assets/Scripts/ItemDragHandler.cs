@@ -29,9 +29,9 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
                 Debug.Log("START DAY " + Plant.dayCount);
                 if (seed.seedID.Equals(Structs.id.flower))
                     Plant.flowersPlanted = true;
-                else
-                    Plant.callForMaint = true;
                 Plant.growthNeeds = true;
+                if (!seed.seedID.Equals(Structs.id.flower))
+                    Plant.callForMaint = true;
                 Plant.turnAboutToEnd = true;
             }  
         }

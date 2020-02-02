@@ -14,6 +14,8 @@ public class Flower : GrowingPlant
         destroyable = false;
         currdate = Plant.dayCount;
         spreadTime = 1;
+        if (occupiedBlock != null)
+            occupiedBlock.content = true;
     }
     protected override void HandleNewDayUpdate() {
         if (Plant.flowersPlanted) {

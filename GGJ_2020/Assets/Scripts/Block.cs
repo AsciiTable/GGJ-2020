@@ -22,6 +22,7 @@ public class Block : MonoBehaviour
 
     public bool InstantiateGrass() {
         if (hasGrass) {
+            content = true;
             Place(Structs.id.grass, false);
         }
         return true;
@@ -29,8 +30,10 @@ public class Block : MonoBehaviour
 
     public bool Place(Structs.id seed, bool OG)
     {
-        if (occupied)
+        if (occupied) {
             return false;
+        }
+            
         occupied = true;
 
         PlantPooler[] pools = FindObjectsOfType<PlantPooler>();
@@ -46,7 +49,6 @@ public class Block : MonoBehaviour
                 if(plant.gameObject.GetComponent<DayHandler>().occupiedBlock == null)
                     plant.gameObject.GetComponent<DayHandler>().occupiedBlock = this;
                 plant.SetActive(true);
-                
                 return true;
             }
         }
