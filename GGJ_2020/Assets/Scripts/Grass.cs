@@ -21,5 +21,12 @@ public class Grass : GrowingPlant
             spreadTime = 0;
             currdate++;
         }
+        if (Plant.turnAboutToEnd)
+        {
+            Plant.turnAboutToEnd = false;
+            Debug.Log("END DAY " + Plant.dayCount);
+            Plant.dayCount++;
+            Debug.Log("START DAY " + Plant.dayCount);
+        }
     }
 }

@@ -26,7 +26,6 @@ public class Seed : MonoBehaviour
             RaycastHit2D rayHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
             if (rayHit)
             {
-                Debug.Log(rayHit.transform.name);
                 Block b = rayHit.transform.gameObject.GetComponent<Block>();
                 if (b != null)
                 {

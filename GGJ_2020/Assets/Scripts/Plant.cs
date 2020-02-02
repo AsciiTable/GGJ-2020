@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class Plant : MonoBehaviour
 {
-    public static int dayCount;
+    public static int dayCount = 0;
+    public static bool turnAboutToEnd = false;
+    public static bool callForMaint = false;
     public Action OnDayAdvance;
 
     private void OnEnable()
