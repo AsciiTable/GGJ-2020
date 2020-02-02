@@ -26,8 +26,8 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
         Debug.Log("Dropped");
         transform.localPosition = Vector3.zero;
         if (seed.getQuantity() > 0) {
-            seed.PlaceSeed();
-            Plant.dayCount++;
+            if(seed.PlaceSeed())
+                Plant.dayCount++;
         }
     }
 }

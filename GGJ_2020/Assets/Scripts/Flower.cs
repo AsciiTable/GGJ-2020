@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Flower : GrowingPlant
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private bool isOriginal = false;
+    private SpreadingPlant sp;
+    public override void giveLifeToPlant()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        sp = this.GetComponent<SpreadingPlant>();
+        occupiedBlock = associatedSeed.GetOccupiedBlock();
+        plantID = Structs.id.flower;
+        occupiedBlock.Place(plantID);
+        destroyable = false;
+        if (isOriginal) {
+            sp.Spread();
+        }
     }
 }

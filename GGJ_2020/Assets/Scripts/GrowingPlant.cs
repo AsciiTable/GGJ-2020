@@ -15,11 +15,12 @@ public class GrowingPlant : DayHandler
     protected int growthStartDate;
     protected int dayOfGrowth;
 
-
     protected override void HandleNewDayUpdate()
     {
-        Debug.Log("Checking growth");
-        checkGrowth();
+        if (destroyable) {
+            Debug.Log("Checking " + plantID +" growth");
+            checkGrowth();
+        }
     }
 
     public virtual void giveLifeToPlant() {
@@ -30,8 +31,12 @@ public class GrowingPlant : DayHandler
     public virtual void checkGrowth() {
         if (Plant.dayCount - growthStartDate >= this.growTime && destroyable)
         {
-            Debug.Log("Plant fully grown");
+            Debug.Log(plantID + " fully grown");
             destroyable = false;
         }
+    }
+
+    public bool getDestroyable() {
+        return destroyable;
     }
 }

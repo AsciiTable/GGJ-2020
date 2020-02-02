@@ -12,9 +12,15 @@ public class GridManager : MonoBehaviour
     //[SerializeField] private GameObject blockPrefab = null;
     [Space(20)]
     [SerializeField] private float borderWidth = 1f;
-    [SerializeField] private float borderHieght = 1f;
+    [SerializeField] private float borderHeight = 1f;
     [SerializeField] private float blockWidth = 1f;
     [SerializeField] private float blockHeight = 1f;
+
+    public float BorderWidth { get => borderWidth; }
+    public float BorderHeight { get => borderHeight; }
+    public float BlockWidth { get => blockWidth; }
+    public float BlockHeight { get => blockHeight; }
+
     [SerializeField] private int xRows = 5;
     [SerializeField] private int yRows = 5;
 
@@ -24,7 +30,7 @@ public class GridManager : MonoBehaviour
     }
     private float OriginY
     {
-        get { return Mathf.Floor(yRows / 2f) * (blockHeight + borderHieght); }
+        get { return Mathf.Floor(yRows / 2f) * (blockHeight + borderHeight); }
     }
 
 
@@ -53,7 +59,7 @@ public class GridManager : MonoBehaviour
                 pos.x += blockWidth + borderWidth;
             }
 
-            pos.y -= blockHeight + borderHieght;
+            pos.y -= blockHeight + borderHeight;
             pos.x = OriginX;
             if (xRows % 2 == 0)
                 pos.x += blockWidth / 2f;
@@ -67,7 +73,7 @@ public class GridManager : MonoBehaviour
             {
                 foreach (GameObject obj in objectPooler.GetPool())
                 {
-                    if (!obj.activeInHierarchy)
+                    if (!obj.activeInHeirarchy)
                     {
                         if (!obj.GetComponent<Block>().newBlock)
                         {
