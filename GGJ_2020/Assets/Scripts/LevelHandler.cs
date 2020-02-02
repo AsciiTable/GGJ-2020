@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelHandler : MonoBehaviour
 {
+    public bool treeDied = false;
+
     [SerializeField] private bool gameEnded = false;
     [SerializeField] private int loseScreenIndex = 2;
     [SerializeField] private int winScreenIndex = 3;
@@ -33,7 +35,7 @@ public class LevelHandler : MonoBehaviour
 
     private void CheckLevel()
     {
-        if (CheckSeedless() && !gameEnded)
+        if ((CheckSeedless() && !gameEnded) || treeDied)
         {
             gameEnded = true;
 
@@ -45,7 +47,7 @@ public class LevelHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
 
-        if (CheckPlants())
+        if (CheckPlants() && !treeDied)
         {
             StartCoroutine(Win());
         }
