@@ -16,11 +16,10 @@ public class Block : MonoBehaviour
     public int row = 0;
     public int column = 0;
 
-    public bool Place(Structs.id seed)
+    public bool Place(Structs.id seed, bool OG)
     {
         if (occupied)
             return false;
-
         occupied = true;
 
         PlantPooler[] pools = FindObjectsOfType<PlantPooler>();
@@ -28,16 +27,18 @@ public class Block : MonoBehaviour
         {
             if (seed == pool.ID)
             {
-                Debug.Log("Got the Pool: " + pool.ID.ToString());
                 GameObject plant = pool.GetObject();
+                plant.gameObject.GetComponent<DayHandler>().isOriginal = OG;
                 plant.GetComponent<GrowingPlant>().giveLifeToPlant();
                 plant.transform.parent = transform;
                 plant.gameObject.transform.localPosition = new Vector3(0f, 0f, -1f);
-                plant.gameObject.GetComponent<DayHandler>().occupiedBlock = this;
+                if(plant.gameObject.GetComponent<DayHandler>().occupiedBlock == null)
+                    plant.gameObject.GetComponent<DayHandler>().occupiedBlock = this;
                 plant.SetActive(true);
+                
                 return true;
             }
         }
-        return true;
+        return false;
     }
 }

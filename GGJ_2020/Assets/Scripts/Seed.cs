@@ -8,7 +8,7 @@ public class Seed : MonoBehaviour
     public static int zAxisPos = 0;
     [SerializeField] protected int quantity = 0;
     [SerializeField] protected float price = 0f;
-    [SerializeField] protected Structs.id seedID;
+    [SerializeField] public Structs.id seedID;
     protected bool onBlock = false;
     public Vector3 origin;
 
@@ -57,7 +57,8 @@ public class Seed : MonoBehaviour
                     if (rayHit.transform.childCount == 0 && getQuantity() > 0)
                     {
                         Debug.Log("Placing " + seedID.ToString());
-                        b.Place(seedID);
+                        b.Place(seedID, true);
+                        
                         decrementQuantity();
                         return true;
                     }

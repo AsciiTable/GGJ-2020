@@ -4670,13 +4670,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   daySubscriber: {fileID: 1816007460}
+  occupiedBlock: {fileID: 0}
+  isOriginal: 0
   plantName: Flower
   growTime: 0
   spreadTime: 1
   destroyable: 0
   associatedSeed: {fileID: 245858252}
   plantID: 2
-  spreadOnAdd: 1
 --- !u!212 &1816007459
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4752,7 +4753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oPool: {fileID: 1234476677}
-  bOccupied: {fileID: 0}
+  occupiedBlock: {fileID: 0}
   gm: {fileID: 177020785}
 --- !u!1 &1879441146
 GameObject:
