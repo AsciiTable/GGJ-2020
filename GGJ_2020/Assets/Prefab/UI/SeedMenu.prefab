@@ -346,12 +346,12 @@ PrefabInstance:
     - target: {fileID: 1519994931575890154, guid: dc5d1c006f0316a4b931703a722fcdea,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 126.375015
       objectReference: {fileID: 0}
     - target: {fileID: 1519994931575890154, guid: dc5d1c006f0316a4b931703a722fcdea,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -47.05
       objectReference: {fileID: 0}
     - target: {fileID: 1519994931575890154, guid: dc5d1c006f0316a4b931703a722fcdea,
         type: 3}
@@ -371,7 +371,7 @@ PrefabInstance:
     - target: {fileID: 1519994931575890154, guid: dc5d1c006f0316a4b931703a722fcdea,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1519994931575890154, guid: dc5d1c006f0316a4b931703a722fcdea,
         type: 3}
@@ -381,7 +381,7 @@ PrefabInstance:
     - target: {fileID: 1519994931575890154, guid: dc5d1c006f0316a4b931703a722fcdea,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1519994931575890154, guid: dc5d1c006f0316a4b931703a722fcdea,
         type: 3}
@@ -402,6 +402,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: IndividualSeedUI (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519994931575890157, guid: dc5d1c006f0316a4b931703a722fcdea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc5d1c006f0316a4b931703a722fcdea, type: 3}
