@@ -8,13 +8,9 @@ public class PauseManager : MenuManager
     [SerializeField] private int pauseIndex = 0;
     [SerializeField] private bool isPaused = false;
 
-    private void OnEnable()
+    private void Update()
     {
-        UpdateHandler.UpdateOccurred += PauseInput;
-    }
-    private void OnDisable()
-    {
-        UpdateHandler.UpdateOccurred -= PauseInput;
+        PauseInput();
     }
 
     private void PauseInput()
@@ -25,8 +21,6 @@ public class PauseManager : MenuManager
 
     public void PauseButton()
     {
-        isPaused = !isPaused;
-
         if (isPaused)
             Pause();
         else
@@ -39,6 +33,7 @@ public class PauseManager : MenuManager
         {
             OpenMenu(pauseIndex);
             Time.timeScale = 0f;
+            isPaused = !isPaused;
         }
     }
     private void Unpause()
@@ -46,6 +41,7 @@ public class PauseManager : MenuManager
         CloseMenus();
         Time.timeScale = 1f;
         menuOpened = false;
+        isPaused = !isPaused;
     }
 
 }
