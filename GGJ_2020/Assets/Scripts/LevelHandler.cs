@@ -33,9 +33,7 @@ public class LevelHandler : MonoBehaviour
 
     private void CheckLevel()
     {
-        Debug.Log("Seeds " + CheckSeedless());
-
-        if (CheckSeedless())
+        if (CheckSeedless() && !gameEnded)
         {
             gameEnded = true;
 
