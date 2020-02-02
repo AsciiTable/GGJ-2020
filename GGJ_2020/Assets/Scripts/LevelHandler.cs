@@ -83,6 +83,7 @@ public class LevelHandler : MonoBehaviour
 
     private void Win()
     {
+        FindObjectOfType<ButtonManager>().ShowNextLevel();
         menuManager.CloseMenus();
         menuManager.OpenMenu(winScreenIndex);
     }
