@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlantPooler : ObjectPooler
 {
-    private Structs.id _ID = Structs.id.empty;
+    [SerializeField] private Structs.id id = Structs.id.empty;
 
-    public Structs.id ID { get => _ID; }
-
+    public Structs.id ID { get => id; }
 }

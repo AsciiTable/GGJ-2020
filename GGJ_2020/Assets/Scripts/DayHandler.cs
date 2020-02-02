@@ -10,7 +10,6 @@ public abstract class DayHandler : MonoBehaviour
     {
         if (daySubscriber == null) {
             daySubscriber = GetComponent<Plant>();
-            Debug.Log("From Day");
         }
         daySubscriber.OnDayAdvance += HandleNewDayUpdate;
     }

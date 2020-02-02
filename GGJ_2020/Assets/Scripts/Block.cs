@@ -26,12 +26,14 @@ public class Block : MonoBehaviour
         PlantPooler[] pools = FindObjectsOfType<PlantPooler>();
         foreach(PlantPooler pool in pools)
         {
-            if (wantedPlant == pool.ID)
+            if (seed == pool.ID)
             {
+                Debug.Log("Got the Pool: " + pool.ID.ToString());
                 GameObject plant = pool.GetObject();
                 plant.GetComponent<GrowingPlant>().giveLifeToPlant();
                 plant.transform.parent = transform;
                 plant.SetActive(true);
+                return true;
             }
         }
         return true;

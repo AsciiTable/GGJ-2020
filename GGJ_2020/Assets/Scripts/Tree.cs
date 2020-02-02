@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Tree : GrowingPlant
 {
-    protected override void HandleNewDayUpdate()
+    public override void giveLifeToPlant()
     {
-        Debug.Log("Tree Subscribed!");
-        if (Plant.dayCount - growthStartDate >= this.growTime) {
-            Debug.Log("Tree fully grown");
-        }
+        occupiedBlock = associatedSeed.GetOccupiedBlock();
+        growthStartDate = Plant.dayCount;
+        plantID = Structs.id.tree;
+        occupiedBlock.Place(plantID);
     }
 
+    protected override void HandleNewDayUpdate()
+    {
+        checkGrowth();
+    }
 }

@@ -12,7 +12,7 @@ public class ObjectPooler : MonoBehaviour
 
     private void Start()
     {
-        FillPool()
+        FillPool();
     }
 
     public void FillPool()

@@ -8,8 +8,7 @@ public class Seed : MonoBehaviour
     public static int zAxisPos = 0;
     [SerializeField] protected int quantity = 0;
     [SerializeField] protected float price = 0f;
-    [SerializeField] protected string seedName = "";
-    [SerializeField] protected Structs.id ID;
+    [SerializeField] protected Structs.id seedID;
     protected bool onBlock = false;
     public Vector3 origin;
 
@@ -18,7 +17,32 @@ public class Seed : MonoBehaviour
         origin = this.gameObject.transform.position;
     }
 
-    public Block PlaceSeed()
+    public Block GetOccupiedBlock() {
+        Vector3 mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, zAxisPos - Camera.main.transform.position.z);
+        mouse = Camera.main.ScreenToWorldPoint(mouse);
+        this.transform.position = new Vector3(mouse.x, mouse.y, zAxisPos);
+        if (Input.GetMouseButtonUp(0))
+        {
+            RaycastHit2D rayHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
+            if (rayHit)
+            {
+                Debug.Log(rayHit.transform.name);
+                Block b = rayHit.transform.gameObject.GetComponent<Block>();
+                if (b != null)
+                {
+                    if (rayHit.transform.childCount == 0 && getQuantity() > 0)
+                        return rayHit.transform.gameObject.GetComponent<Block>();
+                    else
+                        return null;
+
+                }
+            }
+            this.gameObject.transform.position = origin;
+        }
+        return null;
+    }
+
+    public void PlaceSeed()
     {
         Vector3 mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, zAxisPos - Camera.main.transform.position.z);
         mouse = Camera.main.ScreenToWorldPoint(mouse);
@@ -28,24 +52,22 @@ public class Seed : MonoBehaviour
             RaycastHit2D rayHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
             if (rayHit) {
                 Debug.Log(rayHit.transform.name);
-                if (rayHit.transform.gameObject.GetComponent<Block>() != null) {
+                Block b = rayHit.transform.gameObject.GetComponent<Block>();
+                if (b != null) {
                     if (rayHit.transform.childCount == 0 && getQuantity() > 0)
                     {
-                        Debug.Log("Planted");
+                        Debug.Log("Placing " + seedID.ToString());
+                        b.Place(seedID);
                         decrementQuantity();
-                        return rayHit.transform.gameObject.GetComponent<Block>();
                     }
                     else
                     {
                         Debug.Log("Already Occupied!");
-                        return null;
                     }
                 }
-
             }
             this.gameObject.transform.position = origin;
         }
-        return null;
     }
 
     public int getQuantity() {
@@ -80,16 +102,8 @@ public class Seed : MonoBehaviour
         price = pri;
     }
 
-    public string getName() {
-        return seedName;
-    }
-
-    public void setName(string n) {
-        seedName = n;
-    }
-
     public string toString() {
-        return seedName + "\n$" + price + "\nQuantity: " + quantity;
+        return seedID + "\n$" + price + "\nQuantity: " + quantity;
     }
 
     public void OnCollisionEnter2D(Collision2D col)
