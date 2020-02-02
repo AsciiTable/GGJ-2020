@@ -23,10 +23,12 @@ public class Grass : GrowingPlant
         }
         if (Plant.turnAboutToEnd)
         {
-            Plant.growthNeeds = true;
+            Plant.turnAboutToEnd = false;
+            //
+            Plant.callForMaint = false;
+            Plant.flowersPlanted = false;
             Debug.Log("END DAY " + Plant.dayCount);
             Plant.dayCount++;
-            Debug.Log("START DAY " + Plant.dayCount);
         }
     }
 }

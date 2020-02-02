@@ -14,7 +14,7 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
     void Start() {
         img = this.gameObject.GetComponent<Image>();
     }
-
+    
     public void OnDrag(PointerEventData eventData)
     {
         if (seed.getQuantity() > 0)
@@ -23,12 +23,16 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("Dropped");
         transform.localPosition = Vector3.zero;
         if (seed.getQuantity() > 0) {
             if (seed.PlaceSeed()) {
-                Plant.callForMaint = true;
-                //Plant.dayCount++;
+                Debug.Log("START DAY " + Plant.dayCount);
+                if (seed.seedID.Equals(Structs.id.flower))
+                    Plant.flowersPlanted = true;
+                else
+                    Plant.callForMaint = true;
+                Plant.growthNeeds = true;
+                Plant.turnAboutToEnd = true;
             }  
         }
     }

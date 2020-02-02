@@ -5,10 +5,10 @@ using System;
 
 public class GrowingPlant : DayHandler
 {
-    [SerializeField] protected string plantName;
-    [SerializeField] protected int growTime;
-    [SerializeField] protected int spreadTime;
-    [SerializeField] protected bool destroyable;
+    [SerializeField] protected string plantName = "";
+    [SerializeField] protected int growTime = 2;
+    [SerializeField] protected int spreadTime= 0;
+    [SerializeField] protected bool destroyable = true;
     [SerializeField] public Seed associatedSeed;
     public Structs.id plantID = Structs.id.empty;
     //[HideInInspector]public Block occupiedBlock;
@@ -20,22 +20,27 @@ public class GrowingPlant : DayHandler
     }
     protected override void HandleNewDayUpdate()
     {
-        if (Plant.growthNeeds) {
-            if (growTime > 0) {
-                growTime--;
-            }
-            if (growTime == 0 && destroyable) {
-                destroyable = false;
-                Debug.Log(plantName + " fully grown.");
-            }
+        Debug.Log("I swear I'm updating");
+        if (Plant.growthNeeds && destroyable) {
+            Debug.Log("Checking " + plantID +" growth");
+            checkGrowth();
             Plant.growthNeeds = false;
-            Plant.callForMaint = true;
         }
     }
 
     public virtual void giveLifeToPlant() {
         occupiedBlock = associatedSeed.GetOccupiedBlock();
         growthStartDate = Plant.dayCount;
+    }
+
+    public virtual void checkGrowth() {
+        if (growTime <= 0)
+        {
+            Debug.Log(plantID + " fully grown");
+            destroyable = false;
+        }
+        else
+            growTime--;
     }
 
     public bool getDestroyable() {

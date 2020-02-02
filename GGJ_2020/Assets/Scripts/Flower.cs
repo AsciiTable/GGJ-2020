@@ -6,6 +6,7 @@ public class Flower : GrowingPlant
 {
     private SpreadingPlant sp;
     private int currdate;
+    private bool init = true;
     public override void giveLifeToPlant()
     {
         occupiedBlock = associatedSeed.GetOccupiedBlock();
@@ -15,7 +16,14 @@ public class Flower : GrowingPlant
         spreadTime = 1;
     }
     protected override void HandleNewDayUpdate() {
-        if (spreadTime > 0 && currdate < Plant.dayCount)
+        if (Plant.flowersPlanted) {
+            sp = this.gameObject.GetComponent<SpreadingPlant>();
+            sp.Spread();
+            spreadTime = 0;
+            Plant.flowersPlanted = false;
+            Plant.growthNeeds = true;
+        }
+        if (!Plant.flowersPlanted && spreadTime > 0 && currdate < Plant.dayCount)
         {
             Debug.Log("Maint Occured on " + Plant.dayCount);
             sp = this.gameObject.GetComponent<SpreadingPlant>();
@@ -23,7 +31,7 @@ public class Flower : GrowingPlant
             spreadTime = 0;
             currdate++;
         }
-        if (Plant.callForMaint) {
+        if (!Plant.flowersPlanted && Plant.callForMaint) {
             Plant.callForMaint = false;
             Plant.turnAboutToEnd = true;
         }
