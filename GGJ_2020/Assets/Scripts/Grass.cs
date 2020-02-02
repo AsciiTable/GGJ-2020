@@ -23,7 +23,7 @@ public class Grass : GrowingPlant
         }
         if (Plant.turnAboutToEnd)
         {
-            Plant.turnAboutToEnd = false;
+            Plant.growthNeeds = true;
             Debug.Log("END DAY " + Plant.dayCount);
             Plant.dayCount++;
             Debug.Log("START DAY " + Plant.dayCount);

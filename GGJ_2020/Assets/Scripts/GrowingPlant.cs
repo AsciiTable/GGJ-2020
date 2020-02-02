@@ -20,23 +20,22 @@ public class GrowingPlant : DayHandler
     }
     protected override void HandleNewDayUpdate()
     {
-        if (destroyable) {
-            Debug.Log("Checking " + plantID +" growth");
-            checkGrowth();
+        if (Plant.growthNeeds) {
+            if (growTime > 0) {
+                growTime--;
+            }
+            if (growTime == 0 && destroyable) {
+                destroyable = false;
+                Debug.Log(plantName + " fully grown.");
+            }
+            Plant.growthNeeds = false;
+            Plant.callForMaint = true;
         }
     }
 
     public virtual void giveLifeToPlant() {
         occupiedBlock = associatedSeed.GetOccupiedBlock();
         growthStartDate = Plant.dayCount;
-    }
-
-    public virtual void checkGrowth() {
-        if (Plant.dayCount - growthStartDate >= this.growTime && destroyable && Plant.turnAboutToEnd)
-        {
-            Debug.Log(plantID + " fully grown");
-            destroyable = false;
-        }
     }
 
     public bool getDestroyable() {

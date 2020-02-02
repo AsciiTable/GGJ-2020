@@ -45,11 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   daySubscriber: {fileID: 4015536548559341709}
+  occupiedBlock: {fileID: 0}
+  isOriginal: 0
   plantName: Tree
   growTime: 1
   spreadTime: 0
   destroyable: 1
-  associatedSeed: {fileID: 0}
+  associatedSeed: {fileID: 4402734240698790713, guid: b9a9af8e93e8d934e81c2151cc4b92e5,
+    type: 3}
   plantID: 3
 --- !u!114 &4015536548559341709
 MonoBehaviour:
@@ -63,4 +66,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bdaba2a4b70d0a48a299043fa31aef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextDayButton: {fileID: 0}
