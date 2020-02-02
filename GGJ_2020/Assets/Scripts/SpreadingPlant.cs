@@ -16,15 +16,23 @@ public class SpreadingPlant : MonoBehaviour
         Block bRight = checkCollision(Vector2.right);
         Block bDown = checkCollision(Vector2.down);
         Block bLeft = checkCollision(Vector2.left);
-        
-        if (bUp != null)
+
+        if (bUp != null) {
             bUp.Place(oPool.ID, false);
-        if (bRight != null)
+            bUp.content = true;
+        }
+        if (bRight != null) {
             bRight.Place(oPool.ID, false);
-        if (bDown != null)
+            bRight.content = true;
+        }
+        if (bDown != null) {
             bDown.Place(oPool.ID, false);
-        if (bLeft != null)
+            bDown.content = true;
+        }
+        if (bLeft != null) {
             bLeft.Place(oPool.ID, false);
+            bLeft.content = true;
+        }
         occupiedBlock.GetComponent<BoxCollider2D>().enabled = true;
     }
 

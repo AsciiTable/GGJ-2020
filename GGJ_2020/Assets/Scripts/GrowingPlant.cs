@@ -20,7 +20,6 @@ public class GrowingPlant : DayHandler
     }
     protected override void HandleNewDayUpdate()
     {
-        Debug.Log("I swear I'm updating");
         if (Plant.growthNeeds && destroyable) {
             Debug.Log("Checking " + plantID +" growth");
             checkGrowth();
@@ -38,6 +37,7 @@ public class GrowingPlant : DayHandler
         {
             Debug.Log(plantID + " fully grown");
             destroyable = false;
+            occupiedBlock.content = true;
         }
         else
             growTime--;
