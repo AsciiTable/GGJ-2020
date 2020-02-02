@@ -30,8 +30,6 @@ public class SpreadingPlant : MonoBehaviour
 
     protected Block checkCollision(Vector2 direction) {
         RaycastHit2D hit = Physics2D.Raycast(occupiedBlock.transform.position, direction);
-        if (hit.collider == null)
-            Debug.Log("HERE'S YOUR PROBLEME");
         if (hit.collider != null && hit.collider.CompareTag("Block")) {
             Block b = hit.transform.gameObject.GetComponent<Block>();
             if (b != null) {

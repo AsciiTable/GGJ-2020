@@ -182,7 +182,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 5
   column: 7
@@ -311,7 +310,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 3
   column: 7
@@ -452,7 +450,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 5
   column: 5
@@ -627,7 +624,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 1
-  grassHasBlock: 0
   newBlock: 0
   row: 1
   column: 1
@@ -756,7 +752,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 2
   column: 3
@@ -1199,7 +1194,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 1
   column: 2
@@ -1328,7 +1322,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 3
   column: 3
@@ -1457,7 +1450,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 1
   column: 3
@@ -1586,7 +1578,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 2
   column: 5
@@ -1715,7 +1706,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 1
   column: 4
@@ -1844,7 +1834,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 1
   column: 5
@@ -1973,7 +1962,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 2
   column: 6
@@ -2102,7 +2090,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 3
   column: 5
@@ -2231,7 +2218,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 3
   column: 6
@@ -2425,7 +2411,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 5
   column: 1
@@ -2746,7 +2731,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 4
   column: 5
@@ -2908,7 +2892,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 2
   column: 7
@@ -3037,7 +3020,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 4
   column: 7
@@ -3213,7 +3195,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 5
   column: 3
@@ -3342,7 +3323,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 2
   column: 4
@@ -3471,7 +3451,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 5
   column: 4
@@ -3600,7 +3579,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 4
   column: 6
@@ -3729,7 +3707,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 4
   column: 4
@@ -3858,7 +3835,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 5
   column: 2
@@ -3987,7 +3963,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 4
   column: 3
@@ -4178,7 +4153,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 3
   column: 1
@@ -4307,7 +4281,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 1
   column: 7
@@ -4483,7 +4456,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 3
   column: 4
@@ -4839,7 +4811,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 2
   column: 1
@@ -5166,7 +5137,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 2
   column: 2
@@ -5295,7 +5265,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 5
   column: 6
@@ -5424,7 +5393,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 4
   column: 1
@@ -5553,7 +5521,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 1
   column: 6
@@ -5682,7 +5649,6 @@ MonoBehaviour:
   content: 0
   occupied: 0
   hasGrass: 0
-  grassHasBlock: 0
   newBlock: 0
   row: 3
   column: 2
@@ -5810,8 +5776,7 @@ MonoBehaviour:
   wantedPlant: 1
   content: 0
   occupied: 0
-  hasGrass: 0
-  grassHasBlock: 0
+  hasGrass: 1
   newBlock: 0
   row: 4
   column: 2
