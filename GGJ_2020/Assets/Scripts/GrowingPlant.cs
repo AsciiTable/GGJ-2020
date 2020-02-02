@@ -11,14 +11,14 @@ public class GrowingPlant : DayHandler
     [SerializeField] protected bool destroyable;
     [SerializeField] public Seed associatedSeed;
     public Structs.id plantID = Structs.id.empty;
-   
     protected Block occupiedBlock;
     protected int growthStartDate;
-
     protected int dayOfGrowth;
+
+
     protected override void HandleNewDayUpdate()
     {
-        Debug.Log("Growing Plant Subscribed!");
+        Debug.Log("Checking growth");
         checkGrowth();
     }
 
@@ -28,7 +28,7 @@ public class GrowingPlant : DayHandler
     }
 
     public virtual void checkGrowth() {
-        if (Plant.dayCount - growthStartDate >= this.growTime)
+        if (Plant.dayCount - growthStartDate >= this.growTime && destroyable)
         {
             Debug.Log("Plant fully grown");
             destroyable = false;

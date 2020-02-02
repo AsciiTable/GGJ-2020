@@ -7,8 +7,8 @@ using UnityEngine.EventSystems;
 
 public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 {
+    
     public Image img;
-
     public Seed seed;
 
     void Start() {
@@ -25,8 +25,9 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         Debug.Log("Dropped");
         transform.localPosition = Vector3.zero;
-        if(seed.getQuantity() > 0)
+        if (seed.getQuantity() > 0) {
             seed.PlaceSeed();
-
+            Plant.dayCount++;
+        }
     }
 }

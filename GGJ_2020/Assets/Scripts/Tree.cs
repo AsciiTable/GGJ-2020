@@ -10,10 +10,6 @@ public class Tree : GrowingPlant
         growthStartDate = Plant.dayCount;
         plantID = Structs.id.tree;
         occupiedBlock.Place(plantID);
-    }
-
-    protected override void HandleNewDayUpdate()
-    {
-        checkGrowth();
+        destroyable = true;
     }
 }

@@ -42,7 +42,7 @@ public class Seed : MonoBehaviour
         return null;
     }
 
-    public void PlaceSeed()
+    public bool PlaceSeed()
     {
         Vector3 mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, zAxisPos - Camera.main.transform.position.z);
         mouse = Camera.main.ScreenToWorldPoint(mouse);
@@ -59,6 +59,7 @@ public class Seed : MonoBehaviour
                         Debug.Log("Placing " + seedID.ToString());
                         b.Place(seedID);
                         decrementQuantity();
+                        return true;
                     }
                     else
                     {
@@ -68,6 +69,7 @@ public class Seed : MonoBehaviour
             }
             this.gameObject.transform.position = origin;
         }
+        return false;
     }
 
     public int getQuantity() {
@@ -104,13 +106,5 @@ public class Seed : MonoBehaviour
 
     public string toString() {
         return seedID + "\n$" + price + "\nQuantity: " + quantity;
-    }
-
-    public void OnCollisionEnter2D(Collision2D col)
-    {
-        Debug.Log("Hit");
-        if (col.gameObject.tag == "Block") {
-            Debug.Log("Block is good");
-        }
     }
 }

@@ -32,6 +32,7 @@ public class Block : MonoBehaviour
                 GameObject plant = pool.GetObject();
                 plant.GetComponent<GrowingPlant>().giveLifeToPlant();
                 plant.transform.parent = transform;
+                plant.gameObject.transform.localPosition = new Vector3(0f, 0f, -1f);
                 plant.SetActive(true);
                 return true;
             }

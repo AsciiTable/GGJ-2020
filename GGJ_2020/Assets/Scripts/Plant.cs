@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class Plant : MonoBehaviour
 {
     public static int dayCount;
-    private int compareDate;
-    public Button nextDayButton;
     public Action OnDayAdvance;
 
     private void OnEnable()
@@ -22,10 +20,9 @@ public class Plant : MonoBehaviour
     }
 
     private void UpdateOnAdvance() {
-        Debug.Log("Heard!!");
-        if (OnDayAdvance != null) {
+        if (OnDayAdvance != null)
+        {
             OnDayAdvance();
         }
-            
     }
 }
