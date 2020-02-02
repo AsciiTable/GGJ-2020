@@ -8,11 +8,12 @@ public class Flower : GrowingPlant
     private SpreadingPlant sp;
     public override void giveLifeToPlant()
     {
-        sp = this.GetComponent<SpreadingPlant>();
         occupiedBlock = associatedSeed.GetOccupiedBlock();
         plantID = Structs.id.flower;
         occupiedBlock.Place(plantID);
         destroyable = false;
+        sp = this.GetComponent<SpreadingPlant>();
+        sp.bOccupied = occupiedBlock;
         if (isOriginal) {
             sp.Spread();
         }

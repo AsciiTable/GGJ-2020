@@ -73,7 +73,7 @@ public class GridManager : MonoBehaviour
             {
                 foreach (GameObject obj in objectPooler.GetPool())
                 {
-                    if (!obj.activeInHeirarchy)
+                    if (!obj.activeInHierarchy)
                     {
                         if (!obj.GetComponent<Block>().newBlock)
                         {
