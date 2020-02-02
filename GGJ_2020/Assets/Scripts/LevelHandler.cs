@@ -13,6 +13,11 @@ public class LevelHandler : MonoBehaviour
     private GameObject[] blocks;
     private MenuManager menuManager;
 
+    [Header("Animation")]
+    [SerializeField] private SpriteRenderer background;
+    [SerializeField] private Sprite winBackground;
+    [SerializeField] private Sprite winSprite;
+
     private void OnEnable()
     {
         seeds = FindObjectsOfType<Seed>();
@@ -41,7 +46,9 @@ public class LevelHandler : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         if (CheckPlants())
-            Win();
+        {
+            StartCoroutine(Win());
+        }
         else
             Lose();
     }
@@ -81,8 +88,12 @@ public class LevelHandler : MonoBehaviour
         return true;
     }
 
-    private void Win()
+    private IEnumerator Win()
     {
+        WinAnimation();
+
+        yield return new WaitForSeconds(1);
+
         FindObjectOfType<ButtonManager>().ShowNextLevel();
         menuManager.CloseMenus();
         menuManager.OpenMenu(winScreenIndex);
@@ -92,5 +103,14 @@ public class LevelHandler : MonoBehaviour
     {
         menuManager.CloseMenus();
         menuManager.OpenMenu(loseScreenIndex);
+    }
+    private void WinAnimation()
+    {
+        background.sprite = winBackground;
+
+        foreach(GameObject block in blocks)
+        {
+            block.GetComponent<SpriteRenderer>().sprite = winSprite;
+        }
     }
 }
