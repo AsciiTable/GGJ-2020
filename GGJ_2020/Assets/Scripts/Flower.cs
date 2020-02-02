@@ -18,24 +18,20 @@ public class Flower : GrowingPlant
             occupiedBlock.content = true;
     }
     protected override void HandleNewDayUpdate() {
-        if (Plant.flowersPlanted) {
+        if (spreadTime > 0 && Plant.flowersPlanted) {
             sp = this.gameObject.GetComponent<SpreadingPlant>();
             sp.Spread();
             spreadTime = 0;
             Plant.flowersPlanted = false;
             Plant.growthNeeds = true;
         }
-        if (!Plant.flowersPlanted && spreadTime > 0 && currdate < Plant.dayCount)
+        else if (!Plant.flowersPlanted && spreadTime > 0 && currdate < Plant.dayCount)
         {
             Debug.Log("Maint Occured on " + Plant.dayCount);
             sp = this.gameObject.GetComponent<SpreadingPlant>();
             sp.Spread();
             spreadTime = 0;
             currdate++;
-        }
-        if (!Plant.flowersPlanted && Plant.callForMaint) {
-            Plant.callForMaint = false;
-            Plant.turnAboutToEnd = true;
         }
     }
 }

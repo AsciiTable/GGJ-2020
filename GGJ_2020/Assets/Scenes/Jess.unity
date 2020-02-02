@@ -5655,6 +5655,11 @@ PrefabInstance:
       objectReference: {fileID: 1816007456}
     - target: {fileID: 8388209703775495693, guid: bd8390c6291ae2d4fb23493a6fcf75a1,
         type: 3}
+      propertyPath: objectPool.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388209703775495693, guid: bd8390c6291ae2d4fb23493a6fcf75a1,
+        type: 3}
       propertyPath: objectPrefab
       value: 
       objectReference: {fileID: 1470668256}
