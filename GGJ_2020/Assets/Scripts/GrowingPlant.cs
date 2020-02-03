@@ -11,6 +11,7 @@ public class GrowingPlant : DayHandler
     [SerializeField] protected bool destroyable = true;
     [SerializeField] public Seed associatedSeed;
     public Structs.id plantID = Structs.id.empty;
+    private int age = 0;
     //[HideInInspector]public Block occupiedBlock;
     protected int growthStartDate;
     protected int dayOfGrowth;
@@ -31,17 +32,18 @@ public class GrowingPlant : DayHandler
     public virtual void giveLifeToPlant() {
         occupiedBlock = associatedSeed.GetOccupiedBlock();
         growthStartDate = Plant.dayCount;
+        age = 1;
     }
 
     public virtual void checkGrowth() {
-        if (growTime <= 0)
+        if (age >= growTime)
         {
             Debug.Log(plantID + " fully grown");
             destroyable = false;
             occupiedBlock.content = true;
         }
         else
-            growTime--;
+            age++;
     }
 
     public bool getDestroyable() {
