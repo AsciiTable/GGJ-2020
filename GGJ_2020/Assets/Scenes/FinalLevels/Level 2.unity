@@ -138,6 +138,11 @@ PrefabInstance:
       propertyPath: associatedSeed
       value: 
       objectReference: {fileID: 906453191}
+    - target: {fileID: 43999990400664274, guid: adbb24240ca974b4290129f42770beb7,
+        type: 3}
+      propertyPath: growTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 43999990810758160, guid: adbb24240ca974b4290129f42770beb7,
         type: 3}
       propertyPath: m_IsActive
