@@ -35,7 +35,7 @@ public class LevelHandler : MonoBehaviour
 
     private void CheckLevel()
     {
-        if ((CheckSeedless() && !gameEnded) || treeDied)
+        if ((CheckSeedless() && !gameEnded) || (treeDied && !gameEnded))
         {
             gameEnded = true;
 
