@@ -54,6 +54,7 @@ MonoBehaviour:
   associatedSeed: {fileID: 4402734240698790713, guid: b9a9af8e93e8d934e81c2151cc4b92e5,
     type: 3}
   plantID: 3
+  fullyGrown: {fileID: 21300000, guid: 95aa820ccc916dc48b60ef9028891d59, type: 3}
 --- !u!114 &4015536548559341709
 MonoBehaviour:
   m_ObjectHideFlags: 0

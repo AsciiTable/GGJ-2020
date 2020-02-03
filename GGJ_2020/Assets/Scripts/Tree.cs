@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Tree : GrowingPlant
 {
+    [SerializeField] private Sprite fullyGrown;
+
+    private void Start()
+    {
+        if (Plant.dayCount == growthStartDate + 2)
+            if (fullyGrown != null)
+                gameObject.GetComponent<SpriteRenderer>().sprite = fullyGrown;
+    }
+
     public override void giveLifeToPlant()
     {
         growTime = 2;
