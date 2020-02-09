@@ -8,26 +8,29 @@ public class Grass : GrowingPlant
     private int currdate;
     protected override void giveLifeToPlant()
     {
-        plantID = Structs.id.grass;
-        destroyable = false;
-        currdate = StageManager.dayCount;
+        if (!isPlanted) {
+            plantID = Structs.id.grass;
+            destroyable = false;
+            currdate = StageManager.dayCount;
+            isPlanted = true;
+        }
     }
-    protected override void HandleNewDayUpdate()
+    protected override void giveSpreadToPlant()
     {
-        if (spreadTime > 0 && currdate < Plant.dayCount)
+        if (spreadTime > 0 && currdate < StageManager.dayCount)
         {
             sp = this.gameObject.GetComponent<SpreadingPlant>();
             sp.Spread();
             spreadTime = 0;
             currdate++;
         }
-        if (Plant.turnAboutToEnd)
+/*        if (Plant.turnAboutToEnd)
         {
             Plant.turnAboutToEnd = false;
             Plant.callForMaint = false;
             Plant.flowersPlanted = false;
             Debug.Log("END DAY " + GrowingPlant.dayCount);
             Plant.dayCount++;
-        }
+        }*/
     }
 }

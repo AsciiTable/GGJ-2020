@@ -38,7 +38,6 @@ public class Seed : MonoBehaviour
                         return rayHit.transform.gameObject.GetComponent<Block>();
                     else
                         return null;
-
                 }
             }
             this.gameObject.transform.position = origin;
