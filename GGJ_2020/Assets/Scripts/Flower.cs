@@ -24,7 +24,7 @@ public class Flower : GrowingPlant
         {
             wait = false;
         }
-        else
+        else if(!wait && spreadTime > 0)
             StageManager.OnSpread += giveSpreadToPlant;
     }
 
@@ -57,13 +57,18 @@ public class Flower : GrowingPlant
                 sp.Spread();
                 Debug.Log("OG spread");
                 //Flower.currdate = StageManager.dayCount;
+                spreadTime = 0;
             }
             isPlanted = true;
+            spreadTime = 1;
         }
     }
     protected override void giveSpreadToPlant() {
-        sp = this.gameObject.GetComponent<SpreadingPlant>();
-        sp.Spread();
-        Debug.Log("Non og spread");
+        if (spreadTime > 0) {
+            sp = this.gameObject.GetComponent<SpreadingPlant>();
+            sp.Spread();
+            Debug.Log("Non og spread");
+            spreadTime = 0;
+        }
     }
 }
