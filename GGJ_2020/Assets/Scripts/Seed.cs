@@ -8,6 +8,7 @@ public class Seed : MonoBehaviour
     public static int zAxisPos = 0;
     [SerializeField] protected int quantity = 0;
     [SerializeField] public Structs.id seedID;
+    [HideInInspector] public Block associatedBlock;
     protected bool onBlock = false;
     public Vector3 origin;
 
@@ -23,7 +24,7 @@ public class Seed : MonoBehaviour
 
 
     public Block GetOccupiedBlock() {
-        Vector3 mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, zAxisPos - Camera.main.transform.position.z);
+/*        Vector3 mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, zAxisPos - Camera.main.transform.position.z);
         mouse = Camera.main.ScreenToWorldPoint(mouse);
         this.transform.position = new Vector3(mouse.x, mouse.y, zAxisPos);
         if (Input.GetMouseButtonUp(0))
@@ -41,9 +42,10 @@ public class Seed : MonoBehaviour
                 }
             }
             this.gameObject.transform.position = origin;
-        }
-        return null;
+        }*/
+        return associatedBlock;
     }
+
 
     public bool PlaceSeed()
     {
@@ -60,8 +62,8 @@ public class Seed : MonoBehaviour
                     {
                         Debug.Log("Placing " + seedID.ToString());
                         b.Place(seedID, true);
-                        
                         decrementQuantity();
+                        associatedBlock = b;
                         return true;
                     }
                     else

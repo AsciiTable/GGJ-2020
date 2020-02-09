@@ -5304,7 +5304,7 @@ PrefabInstance:
     - target: {fileID: 43999990400664274, guid: adbb24240ca974b4290129f42770beb7,
         type: 3}
       propertyPath: growTime
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 43999990810758160, guid: adbb24240ca974b4290129f42770beb7,
         type: 3}
@@ -5484,6 +5484,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5064634235855224606, guid: 1661b65370e38f54ebb0d28c6d44ebf9,
+        type: 3}
+      propertyPath: quantity
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5064634237846936676, guid: 1661b65370e38f54ebb0d28c6d44ebf9,
         type: 3}
       propertyPath: m_Name

@@ -12,6 +12,10 @@ public class Flower : GrowingPlant
     {
         if (!isPlanted) {
             occupiedBlock = associatedSeed.GetOccupiedBlock();
+            if (occupiedBlock == null)
+            {
+                Debug.Log("Why don't I have a block yet :<");
+            }
             plantID = Structs.id.flower;
             destroyable = false;
             currdate = StageManager.dayCount;

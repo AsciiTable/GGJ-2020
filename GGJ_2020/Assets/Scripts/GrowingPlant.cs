@@ -48,6 +48,9 @@ public class GrowingPlant : MonoBehaviour
     protected virtual void giveLifeToPlant() {
         if (!isPlanted) {
             occupiedBlock = associatedSeed.GetOccupiedBlock();
+            if (occupiedBlock == null) {
+                Debug.Log("Why don't I have a block yet :<");
+            }
             growthStartDate = StageManager.dayCount;
             age = 0;
             isPlanted = true;

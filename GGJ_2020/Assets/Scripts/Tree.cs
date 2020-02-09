@@ -12,6 +12,10 @@ public class Tree : GrowingPlant
         {
             age = 0;
             occupiedBlock = associatedSeed.GetOccupiedBlock();
+            if (occupiedBlock == null)
+            {
+                Debug.Log("Why don't I have a block yet :<");
+            }
             growthStartDate = StageManager.dayCount;
             plantID = Structs.id.tree;
             occupiedBlock.Place(plantID, false);
@@ -22,6 +26,7 @@ public class Tree : GrowingPlant
     protected override void giveGrowthToPlant()
     {
         age++;
+        Debug.Log("Tree at age " + age);
         if (destroyable)
             checkGrowth();
             if(!destroyable && fullyGrown != null)

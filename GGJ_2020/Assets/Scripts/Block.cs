@@ -22,8 +22,8 @@ public class Block : MonoBehaviour
 
     public bool InstantiateGrass() {
         if (hasGrass) {
+            Place(Structs.id.grass, true);
             content = true;
-            Place(Structs.id.grass, false);
         }
         return true;
     }
@@ -42,12 +42,14 @@ public class Block : MonoBehaviour
             if (seed == pool.ID)
             {
                 GameObject plant = pool.GetObject();
+                if (plant.gameObject.GetComponent<GrowingPlant>().occupiedBlock == null)
+                {
+                    plant.gameObject.GetComponent<GrowingPlant>().occupiedBlock = this.gameObject.GetComponent<Block>();
+                }
                 plant.gameObject.GetComponent<GrowingPlant>().isOriginal = OG;
                 //plant.GetComponent<GrowingPlant>().giveLifeToPlant();
                 plant.transform.parent = transform;
                 plant.gameObject.transform.localPosition = new Vector3(0f, 0f, -1f);
-                if(plant.gameObject.GetComponent<GrowingPlant>().occupiedBlock == null)
-                    plant.gameObject.GetComponent<GrowingPlant>().occupiedBlock = this;
                 plant.SetActive(true);
                 return true;
             }

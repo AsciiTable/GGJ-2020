@@ -7,6 +7,9 @@ using UnityEngine.EventSystems;
 
 public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 {
+    public delegate void ClickAction();
+    public static event ClickAction OnClicked;
+
     public Image img;
     public Seed seed;
 
@@ -25,6 +28,8 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
         transform.localPosition = Vector3.zero;
         if (seed.getQuantity() > 0) {
             if (seed.PlaceSeed()) {
+                if (OnClicked != null)
+                    OnClicked();
                 StageManager.dayCount++;
                 Debug.Log("DAY " + StageManager.dayCount);
             }  

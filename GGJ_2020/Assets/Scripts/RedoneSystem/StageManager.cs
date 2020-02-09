@@ -13,12 +13,12 @@ public class StageManager : MonoBehaviour
 
     private void OnEnable()
     {
-        UpdateHandler.UpdateOccurred += OnNewDay;
+        ItemDragHandler.OnClicked += OnNewDay;
     }
 
     private void OnDisable()
     {
-        UpdateHandler.UpdateOccurred -= OnNewDay;
+        ItemDragHandler.OnClicked -= OnNewDay;
     }
 
     private void OnNewDay() {
