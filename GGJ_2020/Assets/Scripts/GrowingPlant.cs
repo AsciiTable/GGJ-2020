@@ -17,6 +17,14 @@ public class GrowingPlant : MonoBehaviour
     protected int age = 0;
     protected int growthStartDate;
 
+    public void resetPlant()
+    {
+        occupiedBlock = null;
+        isOriginal = false;
+        age = 0;
+        growthStartDate = 0;
+        isPlanted = false;
+    }
     public Block getOBlock() {
         return occupiedBlock;
     }
