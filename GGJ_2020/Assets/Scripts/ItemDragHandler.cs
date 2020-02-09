@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 
 public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 {
-    
     public Image img;
     public Seed seed;
 
@@ -26,18 +25,8 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
         transform.localPosition = Vector3.zero;
         if (seed.getQuantity() > 0) {
             if (seed.PlaceSeed()) {
-                Debug.Log("START DAY " + Plant.dayCount);
-                Plant.growthNeeds = true;
-                if (seed.seedID.Equals(Structs.id.flower))
-                {
-                    Plant.flowersPlanted = true;
-                    Plant.turnAboutToEnd = true;
-                }
-                else {
-                    Plant.growthNeeds = true;
-                    Plant.callForMaint = false;
-                }
-                Plant.turnAboutToEnd = true;
+                StageManager.dayCount++;
+                Debug.Log("DAY " + StageManager.dayCount);
             }  
         }
     }

@@ -6,20 +6,25 @@ public class Tree : GrowingPlant
 {
     [SerializeField] private Sprite fullyGrown;
 
-    private void Start()
+    protected override void giveLifeToPlant()
     {
-        if (Plant.dayCount == growthStartDate + 2)
-            if (fullyGrown != null)
-                gameObject.GetComponent<SpriteRenderer>().sprite = fullyGrown;
+        if (!isPlanted)
+        {
+            age = 0;
+            occupiedBlock = associatedSeed.GetOccupiedBlock();
+            growthStartDate = StageManager.dayCount;
+            plantID = Structs.id.tree;
+            occupiedBlock.Place(plantID, false);
+            destroyable = true;
+            isPlanted = true;
+        }
     }
-
-    public override void giveLifeToPlant()
+    protected override void giveGrowthToPlant()
     {
-        growTime = 1;
-        occupiedBlock = associatedSeed.GetOccupiedBlock();
-        growthStartDate = Plant.dayCount;
-        plantID = Structs.id.tree;
-        occupiedBlock.Place(plantID, false);
-        destroyable = true;
+        age++;
+        if (destroyable)
+            checkGrowth();
+            if(!destroyable && fullyGrown != null)
+                gameObject.GetComponent<SpriteRenderer>().sprite = fullyGrown;
     }
 }

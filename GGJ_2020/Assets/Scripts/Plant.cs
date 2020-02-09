@@ -6,13 +6,16 @@ using UnityEngine.UI;
 
 public class Plant : MonoBehaviour
 {
-    public static int dayCount;
+    //public static int dayCount;
     public static bool flowersPlanted;
     public static bool growthNeeds;
     public static bool callForMaint;
     public static bool turnAboutToEnd;
 
     public Action OnDayAdvance;
+    public Action PlantStage;
+    public Action GrowthStage;
+    public Action SpreadStage;
 
     private void OnEnable()
     {

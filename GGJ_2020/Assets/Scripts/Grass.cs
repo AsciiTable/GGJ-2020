@@ -6,11 +6,11 @@ public class Grass : GrowingPlant
 {
     private SpreadingPlant sp;
     private int currdate;
-    public override void giveLifeToPlant()
+    protected override void giveLifeToPlant()
     {
         plantID = Structs.id.grass;
         destroyable = false;
-        currdate = Plant.dayCount;
+        currdate = StageManager.dayCount;
     }
     protected override void HandleNewDayUpdate()
     {
@@ -26,7 +26,7 @@ public class Grass : GrowingPlant
             Plant.turnAboutToEnd = false;
             Plant.callForMaint = false;
             Plant.flowersPlanted = false;
-            Debug.Log("END DAY " + Plant.dayCount);
+            Debug.Log("END DAY " + GrowingPlant.dayCount);
             Plant.dayCount++;
         }
     }

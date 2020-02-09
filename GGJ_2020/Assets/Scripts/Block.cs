@@ -42,12 +42,12 @@ public class Block : MonoBehaviour
             if (seed == pool.ID)
             {
                 GameObject plant = pool.GetObject();
-                plant.gameObject.GetComponent<DayHandler>().isOriginal = OG;
-                plant.GetComponent<GrowingPlant>().giveLifeToPlant();
+                plant.gameObject.GetComponent<GrowingPlant>().isOriginal = OG;
+                //plant.GetComponent<GrowingPlant>().giveLifeToPlant();
                 plant.transform.parent = transform;
                 plant.gameObject.transform.localPosition = new Vector3(0f, 0f, -1f);
-                if(plant.gameObject.GetComponent<DayHandler>().occupiedBlock == null)
-                    plant.gameObject.GetComponent<DayHandler>().occupiedBlock = this;
+                if(plant.gameObject.GetComponent<GrowingPlant>().occupiedBlock == null)
+                    plant.gameObject.GetComponent<GrowingPlant>().occupiedBlock = this;
                 plant.SetActive(true);
                 return true;
             }
