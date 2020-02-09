@@ -25,7 +25,5 @@ public class Grass : GrowingPlant
     {
         sp = this.gameObject.GetComponent<SpreadingPlant>();
         sp.Spread();
-        spreadTime = 0;
-        currdate++;
     }
 }

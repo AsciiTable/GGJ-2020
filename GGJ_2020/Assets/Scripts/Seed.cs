@@ -24,25 +24,6 @@ public class Seed : MonoBehaviour
 
 
     public Block GetOccupiedBlock() {
-/*        Vector3 mouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, zAxisPos - Camera.main.transform.position.z);
-        mouse = Camera.main.ScreenToWorldPoint(mouse);
-        this.transform.position = new Vector3(mouse.x, mouse.y, zAxisPos);
-        if (Input.GetMouseButtonUp(0))
-        {
-            RaycastHit2D rayHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
-            if (rayHit)
-            {
-                Block b = rayHit.transform.gameObject.GetComponent<Block>();
-                if (b != null)
-                {
-                    if (rayHit.transform.childCount == 0 && getQuantity() > 0)
-                        return rayHit.transform.gameObject.GetComponent<Block>();
-                    else
-                        return null;
-                }
-            }
-            this.gameObject.transform.position = origin;
-        }*/
         return associatedBlock;
     }
 

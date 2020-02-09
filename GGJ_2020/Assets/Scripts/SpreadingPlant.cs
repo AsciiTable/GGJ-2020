@@ -8,7 +8,6 @@ public class SpreadingPlant : MonoBehaviour
     public PlantPooler oPool;
     public Block occupiedBlock;
     public GridManager gm;
-
     public void Spread() {
         occupiedBlock = this.gameObject.GetComponent<GrowingPlant>().getOBlock();
         occupiedBlock.GetComponent<BoxCollider2D>().enabled = false;

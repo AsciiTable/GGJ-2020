@@ -80,4 +80,7 @@ public class GrowingPlant : MonoBehaviour
     public bool getDestroyable() {
         return destroyable;
     }
+    public bool getOG(){
+        return isOriginal;
+    }
 }

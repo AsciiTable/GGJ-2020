@@ -5,13 +5,41 @@ using UnityEngine;
 public class Flower : GrowingPlant
 {
     private SpreadingPlant sp;
-    private int currdate;
-    private bool init = true;
-    [SerializeField]private int ageToStartSpreading = 2;
-    protected override void giveLifeToPlant()
+    public static int currdate;
+    private bool wait = false;
+    [SerializeField] private int initAgeToSpread = 2;
+
+    private void OnEnable()
     {
         if (!isPlanted) {
-            occupiedBlock = associatedSeed.GetOccupiedBlock();
+            StageManager.OnPlant += giveLifeToPlant;
+            wait = true;
+        }
+        StageManager.OnGrowth += giveGrowthToPlant;
+    }
+
+    private void Update()
+    {
+        if (wait == true)
+        {
+            wait = false;
+        }
+        else
+            StageManager.OnSpread += giveSpreadToPlant;
+    }
+
+    private void OnDisable()
+    {
+        StageManager.OnPlant -= giveLifeToPlant;
+        StageManager.OnGrowth -= giveGrowthToPlant;
+        StageManager.OnSpread -= giveSpreadToPlant;
+    }
+
+    protected override void giveLifeToPlant()
+    {
+        if (!isPlanted)
+        {
+            //occupiedBlock = associatedSeed.GetOccupiedBlock();
             if (occupiedBlock == null)
             {
                 Debug.Log("Why don't I have a block yet :<");
@@ -19,29 +47,23 @@ public class Flower : GrowingPlant
             plantID = Structs.id.flower;
             destroyable = false;
             currdate = StageManager.dayCount;
-            spreadTime = 1;
+            //spreadTime = 1;
             if (occupiedBlock != null)
                 occupiedBlock.content = true;
+            age = 0;
+            if (isOriginal)
+            {
+                sp = this.gameObject.GetComponent<SpreadingPlant>();
+                sp.Spread();
+                Debug.Log("OG spread");
+                //Flower.currdate = StageManager.dayCount;
+            }
             isPlanted = true;
         }
-
     }
     protected override void giveSpreadToPlant() {
-        if (age < ageToStartSpreading) {
-            return;
-        }
-        if (spreadTime > 0) {
-            sp = this.gameObject.GetComponent<SpreadingPlant>();
-            sp.Spread();
-            spreadTime = 0;
-        }
-        else if (spreadTime > 0 && currdate < StageManager.dayCount)
-        {
-            Debug.Log("Maint Occured on " + StageManager.dayCount);
-            sp = this.gameObject.GetComponent<SpreadingPlant>();
-            sp.Spread();
-            spreadTime = 0;
-            currdate++;
-        }
+        sp = this.gameObject.GetComponent<SpreadingPlant>();
+        sp.Spread();
+        Debug.Log("Non og spread");
     }
 }
