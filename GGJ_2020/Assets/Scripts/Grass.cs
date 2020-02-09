@@ -7,16 +7,6 @@ public class Grass : GrowingPlant
     private SpreadingPlant sp;
     private int currdate;
 
-    private void OnEnable()
-    {
-        StageManager.OnPlant += giveLifeToPlant;
-    }
-
-    private void OnDisable()
-    {
-        StageManager.OnPlant -= giveLifeToPlant;
-    }
-
     protected override void giveLifeToPlant()
     {
         if (!isPlanted) {
@@ -33,20 +23,9 @@ public class Grass : GrowingPlant
     }
     protected override void giveSpreadToPlant()
     {
-        if (spreadTime > 0 && currdate < StageManager.dayCount)
-        {
-            sp = this.gameObject.GetComponent<SpreadingPlant>();
-            sp.Spread();
-            spreadTime = 0;
-            currdate++;
-        }
-/*        if (Plant.turnAboutToEnd)
-        {
-            Plant.turnAboutToEnd = false;
-            Plant.callForMaint = false;
-            Plant.flowersPlanted = false;
-            Debug.Log("END DAY " + GrowingPlant.dayCount);
-            Plant.dayCount++;
-        }*/
+        sp = this.gameObject.GetComponent<SpreadingPlant>();
+        sp.Spread();
+        spreadTime = 0;
+        currdate++;
     }
 }
