@@ -6,7 +6,8 @@ using System;
 public class GrowingPlant : MonoBehaviour
 {
     [HideInInspector] public Block occupiedBlock;
-    [HideInInspector] public bool isOriginal = false;
+    public bool isOriginal = false;
+    public int uniqueID = -1;
     [SerializeField] protected string plantName = "";
     [SerializeField] protected int growTime = 2;
     [SerializeField] protected int spreadTime= 0;
@@ -14,8 +15,13 @@ public class GrowingPlant : MonoBehaviour
     [SerializeField] public Seed associatedSeed;
     protected bool isPlanted = false;
     public Structs.id plantID = Structs.id.empty;
-    protected int age = 0;
+    [SerializeField] protected int age = 0;
+
+    public int Age { get => age; }
+    public int setSpreadTime { set => spreadTime = value; }
+
     protected int growthStartDate;
+
 
     public void resetPlant()
     {
@@ -33,14 +39,14 @@ public class GrowingPlant : MonoBehaviour
     {
         StageManager.OnPlant += giveLifeToPlant;
         StageManager.OnGrowth += giveGrowthToPlant;
-        StageManager.OnSpread += giveSpreadToPlant;
+        //StageManager.OnSpread += giveSpreadToPlant;
     }
 
     private void OnDisable()
     {
         StageManager.OnPlant -= giveLifeToPlant;
         StageManager.OnGrowth -= giveGrowthToPlant;
-        StageManager.OnSpread -= giveSpreadToPlant;
+        //StageManager.OnSpread -= giveSpreadToPlant;
     }
 
     /*    protected override void HandleNewDayUpdate()
@@ -71,7 +77,7 @@ public class GrowingPlant : MonoBehaviour
             checkGrowth();
     }
 
-    protected virtual void giveSpreadToPlant()
+    public virtual void giveSpreadToPlant()
     {
         // By default, do nothing
     }

@@ -7,7 +7,12 @@ public class Flower : GrowingPlant
     private SpreadingPlant sp;
     public static int currdate;
     private bool wait = false;
+    private bool planted = false;
     [SerializeField] private int initAgeToSpread = 2;
+
+    //Block stops all flowers with same id when disabling this
+    public bool spreadEnabled = true;
+    
 
     private void OnEnable()
     {
@@ -24,21 +29,26 @@ public class Flower : GrowingPlant
         {
             wait = false;
         }
-        else if(!wait && spreadTime > 0)
-            StageManager.OnSpread += giveSpreadToPlant;
+        else if(!wait && spreadTime > 0 && !planted)
+        {
+            //StageManager.OnSpread += giveSpreadToPlant;
+            StageManager.AddSpreadingPlant(GetComponent<Flower>(), uniqueID);
+            planted = true;
+        }
     }
 
     private void OnDisable()
     {
         StageManager.OnPlant -= giveLifeToPlant;
         StageManager.OnGrowth -= giveGrowthToPlant;
-        StageManager.OnSpread -= giveSpreadToPlant;
+        //StageManager.OnSpread -= giveSpreadToPlant;
     }
 
     protected override void giveLifeToPlant()
     {
         if (!isPlanted)
         {
+            Debug.Log("Live you thing!");
             //occupiedBlock = associatedSeed.GetOccupiedBlock();
             if (occupiedBlock == null)
             {
@@ -51,19 +61,23 @@ public class Flower : GrowingPlant
             if (occupiedBlock != null)
                 occupiedBlock.content = true;
             age = 0;
+            spreadTime = 1;
+
             if (isOriginal)
             {
                 sp = this.gameObject.GetComponent<SpreadingPlant>();
-                sp.Spread();
+                sp.Spread(true);
                 Debug.Log("OG spread");
                 //Flower.currdate = StageManager.dayCount;
                 spreadTime = 0;
             }
+
             isPlanted = true;
-            spreadTime = 1;
+            spreadEnabled = true;
         }
     }
-    protected override void giveSpreadToPlant() {
+    public override void giveSpreadToPlant() {
+        Debug.Log("Spread boy: " + spreadTime);
         if (spreadTime > 0) {
             sp = this.gameObject.GetComponent<SpreadingPlant>();
             sp.Spread();
@@ -71,4 +85,5 @@ public class Flower : GrowingPlant
             spreadTime = 0;
         }
     }
+
 }

@@ -7,6 +7,9 @@ using UnityEngine.EventSystems;
 
 public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 {
+    //This checks if plants are spreading or not
+    public static bool isDragReady = true;
+
     public delegate void ClickAction();
     public static event ClickAction OnClicked;
 
@@ -19,20 +22,23 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
     
     public void OnDrag(PointerEventData eventData)
     {
-        if (seed.getQuantity() > 0)
+        if (seed.getQuantity() > 0 && isDragReady)
             transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.localPosition = Vector3.zero;
-        if (seed.getQuantity() > 0) {
-            if (seed.PlaceSeed()) {
-                if (OnClicked != null)
-                    OnClicked();
-                StageManager.dayCount++;
-                Debug.Log("DAY " + StageManager.dayCount);
-            }  
+        if (isDragReady) { 
+            transform.localPosition = Vector3.zero;
+            if (seed.getQuantity() > 0) {
+                if (seed.PlaceSeed()) {
+                    if (OnClicked != null)
+                        OnClicked();
+                    StageManager.dayCount++;
+                    Debug.Log("DAY " + StageManager.dayCount);
+                }  
+            }
         }
+        
     }
 }

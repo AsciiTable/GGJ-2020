@@ -8,28 +8,31 @@ public class SpreadingPlant : MonoBehaviour
     public PlantPooler oPool;
     public Block occupiedBlock;
     public GridManager gm;
-    public void Spread() {
-        occupiedBlock = this.gameObject.GetComponent<GrowingPlant>().getOBlock();
+
+
+    public void Spread(bool buffer = false) {
+        GrowingPlant parentPlant = this.gameObject.GetComponent<GrowingPlant>();
+        occupiedBlock = parentPlant.getOBlock();
         occupiedBlock.GetComponent<BoxCollider2D>().enabled = false;
-        Block bUp = checkCollision(Vector2.up, (gm.BlockHeight+gm.BorderHeight)/2);
-        Block bRight = checkCollision(Vector2.right, (gm.BlockWidth + gm.BorderWidth)/2);
+        Block bUp = checkCollision(Vector2.up, (gm.BlockHeight + gm.BorderHeight) / 2);
+        Block bRight = checkCollision(Vector2.right, (gm.BlockWidth + gm.BorderWidth) / 2);
         Block bDown = checkCollision(Vector2.down, (gm.BlockHeight + gm.BorderHeight) / 2);
         Block bLeft = checkCollision(Vector2.left, (gm.BlockWidth + gm.BorderWidth) / 2);
 
         if (bUp != null) {
-            bUp.Place(oPool.ID, false);
+            bUp.Place(oPool.ID, false, parentPlant.uniqueID, buffer);
             bUp.content = true;
         }
         if (bRight != null) {
-            bRight.Place(oPool.ID, false);
+            bRight.Place(oPool.ID, false, parentPlant.uniqueID, buffer);
             bRight.content = true;
         }
         if (bDown != null) {
-            bDown.Place(oPool.ID, false);
+            bDown.Place(oPool.ID, false, parentPlant.uniqueID, buffer);
             bDown.content = true;
         }
         if (bLeft != null) {
-            bLeft.Place(oPool.ID, false);
+            bLeft.Place(oPool.ID, false, parentPlant.uniqueID, buffer);
             bLeft.content = true;
         }
         occupiedBlock.GetComponent<BoxCollider2D>().enabled = true;

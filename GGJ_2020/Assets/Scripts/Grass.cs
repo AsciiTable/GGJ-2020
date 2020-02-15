@@ -7,6 +7,18 @@ public class Grass : GrowingPlant
     private SpreadingPlant sp;
     private int currdate;
 
+    private void OnEnable()
+    {
+        StageManager.OnPlant += giveLifeToPlant;
+        StageManager.OnGrowth += giveGrowthToPlant;
+        StageManager.OnSpreadGrass += giveSpreadToPlant;
+    }
+    private void OnDisable()
+    {
+        StageManager.OnPlant -= giveLifeToPlant;
+        StageManager.OnGrowth -= giveGrowthToPlant;
+        StageManager.OnSpreadGrass -= giveSpreadToPlant;
+    }
     protected override void giveLifeToPlant()
     {
         if (!isPlanted) {
@@ -21,7 +33,7 @@ public class Grass : GrowingPlant
             isPlanted = true;
         }
     }
-    protected override void giveSpreadToPlant()
+    public override void giveSpreadToPlant()
     {
         sp = this.gameObject.GetComponent<SpreadingPlant>();
         sp.Spread();
