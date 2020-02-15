@@ -13,7 +13,7 @@ public class GrowingPlant : MonoBehaviour
     [SerializeField] protected int spreadTime= 0;
     [SerializeField] protected bool destroyable = true;
     [SerializeField] public Seed associatedSeed;
-    protected bool isPlanted = false;
+    [SerializeField]protected bool isPlanted = false;
     public Structs.id plantID = Structs.id.empty;
     [SerializeField] protected int age = 0;
 

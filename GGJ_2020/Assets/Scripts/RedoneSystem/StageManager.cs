@@ -33,26 +33,26 @@ public class StageManager : MonoBehaviour
         if (OnGrowth != null) {
             OnGrowth();
         }
-
-        //OnSpread
-        //Spread grass
-        if (OnSpreadGrass != null) {
-            OnSpreadGrass();
-        }
-
-        //Spread other plants
-        StartCoroutine(SpreadFlowers());
+    
+        StartCoroutine(OnSpread());
 
     }
 
-    private IEnumerator SpreadFlowers()
+    private IEnumerator OnSpread(float time = 0.5f)
     {
+        //Spread grass
+        if (OnSpreadGrass != null)
+        {
+            yield return new WaitForSeconds(time);
+            OnSpreadGrass();
+        }
+
         //Spreads flowers 
         ItemDragHandler.isDragReady = false;
 
         for(int a = listSpreading.Count-1; a >= 0; a--)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(time);
             for(int p = listSpreading[a].Count - 1; p >= 0; p--)
             {
                 listSpreading[a][p].giveSpreadToPlant();
@@ -93,12 +93,19 @@ public class StageManager : MonoBehaviour
         foreach(List<GrowingPlant> plants in listSpreadingTotal)
         {
             if(plants != null) { 
+                //Array should have all the same unique ID
                 if(plants[0].uniqueID == UniqueID)
                 {
+                    //Stops script if the flower has already been disabled
+                    if (!plants[0].GetComponent<Flower>().spreadEnabled)
+                        return;
+
                     foreach(GrowingPlant plant in plants)
                     {
                         plant.GetComponent<Flower>().spreadEnabled = false;
                     }
+
+                    return;
                 }
             }
         }

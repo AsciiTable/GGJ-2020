@@ -79,6 +79,8 @@ public class Block : MonoBehaviour
                         plant.gameObject.GetComponent<GrowingPlant>().setSpreadTime = 0;
                 }
 
+                DisableFlowers();
+
                 plant.SetActive(true);
 
                 return true;
@@ -98,15 +100,19 @@ public class Block : MonoBehaviour
         int? fLeft = checkFlowerID(Vector2.left, (gm.BlockWidth + gm.BorderWidth) / 2);
 
         if (fUp.HasValue) {
+            Debug.Log("Flower Death");
             StageManager.DisableFlowers(fUp.Value);
         }
         if (fRight.HasValue) {
+            Debug.Log("Flower Death");
             StageManager.DisableFlowers(fRight.Value);
         }
         if (fDown.HasValue) {
+            Debug.Log("Flower Death");
             StageManager.DisableFlowers(fDown.Value);
         }
         if (fLeft.HasValue) {
+            Debug.Log("Flower Death");
             StageManager.DisableFlowers(fLeft.Value);
         }
         GetComponent<BoxCollider2D>().enabled = true;

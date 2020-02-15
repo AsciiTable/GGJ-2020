@@ -8,7 +8,6 @@ public class Flower : GrowingPlant
     public static int currdate;
     private bool wait = false;
     private bool planted = false;
-    [SerializeField] private int initAgeToSpread = 2;
 
     //Block stops all flowers with same id when disabling this
     public bool spreadEnabled = true;
@@ -19,6 +18,7 @@ public class Flower : GrowingPlant
         if (!isPlanted) {
             StageManager.OnPlant += giveLifeToPlant;
             wait = true;
+            spreadEnabled = true;
         }
         StageManager.OnGrowth += giveGrowthToPlant;
     }
@@ -73,12 +73,11 @@ public class Flower : GrowingPlant
             }
 
             isPlanted = true;
-            spreadEnabled = true;
         }
     }
     public override void giveSpreadToPlant() {
         Debug.Log("Spread boy: " + spreadTime);
-        if (spreadTime > 0) {
+        if (spreadTime > 0 && spreadEnabled) {
             sp = this.gameObject.GetComponent<SpreadingPlant>();
             sp.Spread();
             Debug.Log("Non og spread");
