@@ -192,9 +192,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 1
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 1
   newBlock: 0
   row: 2
@@ -320,9 +321,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 0
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 2
@@ -434,9 +436,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 0
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 3
@@ -695,9 +698,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 0
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 2
@@ -1071,9 +1075,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 0
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 1
@@ -1433,9 +1438,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 0
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 3
@@ -1561,9 +1567,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 0
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 2
@@ -1755,9 +1762,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 0
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 2
@@ -2019,9 +2027,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 0
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 2
@@ -2435,9 +2444,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 0
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 1
@@ -2499,26 +2509,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3830230056377520481, guid: 695289aed63f3b749917b1cb946ff23e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 3830230056377520481, guid: 695289aed63f3b749917b1cb946ff23e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -373
-      objectReference: {fileID: 0}
-    - target: {fileID: 5395558638898796634, guid: 695289aed63f3b749917b1cb946ff23e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 5395558638898796634, guid: 695289aed63f3b749917b1cb946ff23e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 377
-      objectReference: {fileID: 0}
     - target: {fileID: 5889088037203113548, guid: 695289aed63f3b749917b1cb946ff23e,
         type: 3}
       propertyPath: m_Name
@@ -2578,16 +2568,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6407369407226178277, guid: 695289aed63f3b749917b1cb946ff23e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 6407369407226178277, guid: 695289aed63f3b749917b1cb946ff23e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -333
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 695289aed63f3b749917b1cb946ff23e, type: 3}
