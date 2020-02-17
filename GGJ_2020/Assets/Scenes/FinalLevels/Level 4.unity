@@ -311,9 +311,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 1
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 2
@@ -439,9 +440,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 1
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 2
@@ -567,9 +569,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 1
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 2
@@ -1099,9 +1102,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 1
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 1
   newBlock: 0
   row: 2
@@ -1326,9 +1330,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 1
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 1
@@ -1526,9 +1531,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 1
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 2
@@ -1798,9 +1804,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 1
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 3
@@ -1952,9 +1959,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 1
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 3
@@ -2352,9 +2360,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 1
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 2
@@ -2480,9 +2489,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 1
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 2
@@ -2608,9 +2618,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031f75b6be68ccb4ea05548a9e884b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedPlant: 1
   content: 0
   occupied: 0
+  occupiedPlant: 0
+  uniqueID: -1
   hasGrass: 0
   newBlock: 0
   row: 1
@@ -2672,6 +2683,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1291791410668125937, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5889088037203113548, guid: 695289aed63f3b749917b1cb946ff23e,
         type: 3}
       propertyPath: m_Name

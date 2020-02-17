@@ -314,6 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dff4a01901a90924583e088eebc18612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  treeDied: 0
   gameEnded: 0
   loseScreenIndex: 2
   winScreenIndex: 3
@@ -399,6 +400,26 @@ PrefabInstance:
     - target: {fileID: 5889088037203113549, guid: 695289aed63f3b749917b1cb946ff23e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5889088037962258469, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5889088037962258490, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5889088037962258490, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5889088037962258490, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
