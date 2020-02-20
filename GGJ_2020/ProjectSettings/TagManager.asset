@@ -8,6 +8,7 @@ TagManager:
   - Seed
   - Grass
   - LevelLoader
+  - AudioManager
   layers:
   - Default
   - TransparentFX
