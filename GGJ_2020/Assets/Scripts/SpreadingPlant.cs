@@ -56,7 +56,7 @@ public class SpreadingPlant : MonoBehaviour
                             if (plant.GetComponent<GrowingPlant>().plantID.Equals(pool.ID))
                             {
                                 FindObjectOfType<LevelHandler>().treeDied = true;
-
+                                StageManager.dayCount = 0;
                                 plant.transform.parent = pool.transform;
                                 plant.gameObject.transform.localPosition = new Vector3(0f, 0f, -1f);
                                 plant.GetComponent<GrowingPlant>().resetPlant();
