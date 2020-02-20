@@ -12,12 +12,28 @@ public class LevelLoader : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
-        if (SaveSystem.LoadLevels() == null) {
+        LevelData[] temp = SaveSystem.LoadLevels();
+        if (temp == null)
+        {
             SaveSystem.levelData = SaveSystem.getAllLevels();
             SaveSystem.SaveLevels(SaveSystem.levelData);
         }
+        else if (temp.Length > SaveSystem.levelData.Length)
+        {
+            LevelData[] temp2 = SaveSystem.levelData;
+            SaveSystem.levelData = new LevelData[temp.Length];
+            for (int i = 0; i < SaveSystem.levelData.Length; i++) {
+                for (int j = 0; j < temp2.Length; j++) {
+                    if (temp[i].index == temp2[j].index) {
+                        SaveSystem.levelData[i] = temp2[j];
+                        break;
+                    }
+                }
+                SaveSystem.levelData[i] = temp[i];
+            }
+        }
         else
-            SaveSystem.levelData = SaveSystem.LoadLevels();
+            SaveSystem.levelData = temp;
         foreach (LevelData l in SaveSystem.levelData)
             Debug.Log(l.ToString());
         DontDestroyOnLoad(this.gameObject);
