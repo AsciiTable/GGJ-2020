@@ -24,6 +24,11 @@ public class StageManager : MonoBehaviour
 
     private void OnDisable()
     {
+        listSpreading = new List<List<GrowingPlant>>();
+        Debug.Log("List Spreading Length: " + listSpreadingTotal.Count);
+        listSpreadingTotal = new List<List<GrowingPlant>>();
+        Debug.Log("List Spreading Length After: " + listSpreadingTotal.Count);
+        flowerGrowing = false;
         ItemDragHandler.OnClicked -= OnNewDay;
     }
 

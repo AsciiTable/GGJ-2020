@@ -29,7 +29,7 @@ public class LevelHandler : MonoBehaviour
         blocks = FindObjectOfType<BlockPooler>().GetPool().ToArray();
         menuManager = FindObjectOfType<MenuManager>();
         camera = FindObjectOfType<Camera>();
-
+        Time.timeScale = 1;
         UpdateHandler.UpdateOccurred += CheckLevel;
     }
     private void OnDisable()
@@ -59,10 +59,11 @@ public class LevelHandler : MonoBehaviour
         yield return new WaitUntil(() => !StageManager.flowerGrowing);
 
         Debug.Log("Game Win?: " + (CheckPlants() && !treeDied));
-
+        StageManager.dayCount = 0;
         if (CheckPlants() && !treeDied)
         {
             StartCoroutine(Win());
+            
             // level Data update
             if (buttonIndex > 0) {
                 SaveSystem.levelData[buttonIndex - 1].levelPassed = true;
