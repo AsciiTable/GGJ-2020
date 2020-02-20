@@ -25,24 +25,20 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null) {
             instance = this;
+        }
+            
     }
 
     private void Start()
     {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("AudioManager");
-        if (objs.Length > 1)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
         for (int i = 0; i < sounds.Length; i++) {
             GameObject _go = new GameObject("Sound_" + i + "_" + sounds[i].name);
             _go.transform.SetParent(this.transform);
             sounds[i].SetSource(_go.AddComponent<AudioSource>());
         }
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
     }
 
     public void PlaySound(string _name) {
