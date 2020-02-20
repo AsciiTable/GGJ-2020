@@ -11,11 +11,11 @@ public class LevelSelection : SceneSelection
     [SerializeField] private bool isAutoAccessible = false;
     private void Start()
     {
+        LoadLevel();
         if (isAutoAccessible && !levelAccessible) {
             levelAccessible = true;
             SaveLevel();
         }
-        LoadLevel();
     }
 
     public void SaveLevel() {
@@ -26,17 +26,23 @@ public class LevelSelection : SceneSelection
 
     public void LoadLevel() {
         //SaveSystem.levelData = SaveSystem.LoadLevels();
+        if (SaveSystem.levelData == null) 
+            return;
         LevelData ld = SaveSystem.levelData[index-1];
         levelAccessible = ld.levelAccessible;
+        if (isAutoAccessible) {
+            levelAccessible = true;
+        }
         levelPassed = ld.levelPassed;
         score = ld.score;
-        index = ld.index;
+        //index = ld.index;
 
         if (levelPassed)
             Debug.Log("Level is passed. Display passed sprite.");
         if (!levelAccessible)
             // In the future, set the button active to false and change the sprite
             this.gameObject.SetActive(false);
+        Debug.Log("Loading Level " + index + ": " + levelAccessible + ", " + levelPassed);
     }
     public bool getLevelAccessible() {
         return levelAccessible;

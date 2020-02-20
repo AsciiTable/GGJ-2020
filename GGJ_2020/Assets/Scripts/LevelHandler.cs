@@ -10,7 +10,7 @@ public class LevelHandler : MonoBehaviour
     [SerializeField] private bool gameEnded = false;
     [SerializeField] private int loseScreenIndex = 2;
     [SerializeField] private int winScreenIndex = 3;
-    [SerializeField] protected int buttonIndex = 0;
+    [SerializeField] protected int buttonIndex = 1;
 
     private Seed[] seeds;
     private GameObject[] blocks;
@@ -65,27 +65,16 @@ public class LevelHandler : MonoBehaviour
             // level Data update
             if (buttonIndex > 0)
             {
-                SaveSystem.levelData[buttonIndex - 1].levelPassed = true;
+                int b = buttonIndex - 1;
+                SaveSystem.levelData[b].levelPassed = true;
+                Debug.Log("Level Passed = " + SaveSystem.levelData[b].levelPassed);
                 if (buttonIndex < SaveSystem.levelData.Length)
                 {
                     SaveSystem.levelData[buttonIndex].levelAccessible = true;
                 }
+                SaveSystem.SaveLevels(SaveSystem.levelData);
             }
             StartCoroutine(Win());
-/*            int index = int.Parse(SceneManager.GetActiveScene().name.Substring(SceneManager.GetActiveScene().name.IndexOf(" ")));
-            SaveSystem.levelData = SaveSystem.getAllLevels();
-            if (SaveSystem.levelData.Length > index)
-            {
-                SaveSystem.levelData[index].levelPassed = true;
-                if (SaveSystem.levelData.Length > index + 1)
-                    SaveSystem.levelData[index + 1].levelAccessible = true;
-                else
-                    Debug.Log("Index too large for level accessible update.");
-            }
-            else
-                Debug.Log("Index too large for level pass update.");
-            
-            SaveSystem.SaveLevels(SaveSystem.levelData);*/
         }
         else
             Lose();

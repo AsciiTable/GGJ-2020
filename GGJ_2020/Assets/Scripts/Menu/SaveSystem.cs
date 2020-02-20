@@ -11,10 +11,9 @@ public static class SaveSystem
         {
             int levelCount = map.transform.childCount;
             LevelData[] ld = new LevelData[levelCount];
-            Debug.Log("There are " + levelCount + " levels.");
             for (int i = 0; i < levelCount; i++) {
-                //map.transform.GetChild(i).gameObject.GetComponent<LevelSelection>().setIndex(i);
                 LevelData ild = new LevelData(map.transform.GetChild(i).gameObject.GetComponent<LevelSelection>());
+                Debug.Log("Loaded " + ild.ToString());
                 ld[i] = ild;
             }
             return ld;
@@ -29,9 +28,7 @@ public static class SaveSystem
         BinaryFormatter bf = new BinaryFormatter();
         string path = Application.persistentDataPath + "/levels.bin";
         FileStream stream = new FileStream(path, FileMode.Create);
-        for (int i = 0; i < levels.Length; i++) {
-            bf.Serialize(stream, levels[i]);
-        }
+        bf.Serialize(stream, levels);
         stream.Close();
     }
 
