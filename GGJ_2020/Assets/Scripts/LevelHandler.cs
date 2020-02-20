@@ -37,6 +37,13 @@ public class LevelHandler : MonoBehaviour
         UpdateHandler.UpdateOccurred -= CheckLevel;
     }
 
+    private void Start()
+    {
+        loseBackground.SetActive(true);
+        winBackground.SetActive(false);
+        camera.backgroundColor = loseColor;
+    }
+
     private void CheckLevel()
     {
         if ((CheckSeedless() && !gameEnded) || (treeDied && !gameEnded))
@@ -117,10 +124,7 @@ public class LevelHandler : MonoBehaviour
 
     private IEnumerator Win()
     {
-        WinAnimation();
-
-        yield return new WaitForSeconds(1);
-
+        yield return StartCoroutine(WinAnimation());
         FindObjectOfType<ButtonManager>().ShowNextLevel();
         menuManager.CloseMenus();
         menuManager.OpenMenu(winScreenIndex);
@@ -131,10 +135,13 @@ public class LevelHandler : MonoBehaviour
         menuManager.CloseMenus();
         menuManager.OpenMenu(loseScreenIndex);
     }
-    private void WinAnimation()
+    private IEnumerator WinAnimation()
     {
+        yield return new WaitForSeconds(1);
+        camera.backgroundColor = winColor;
+        yield return new WaitForSeconds(1);
         winBackground.SetActive(true);
         loseBackground.SetActive(false);
-        camera.backgroundColor = winColor;
+        yield return new WaitForSeconds(1);
     }
 }
