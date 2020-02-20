@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelSelection : SceneSelection
 {
@@ -9,6 +10,9 @@ public class LevelSelection : SceneSelection
     [SerializeField] protected float score = 0f;
     [SerializeField] protected int index = -1;
     [SerializeField] private bool isAutoAccessible = false;
+    [SerializeField] private Sprite lockedSprite;
+    [SerializeField] private Sprite unlockedSprite;
+    [SerializeField] private Sprite passedSprite;
     private void Start()
     {
         LoadLevel();
@@ -25,7 +29,7 @@ public class LevelSelection : SceneSelection
     }
 
     public void LoadLevel() {
-        //SaveSystem.levelData = SaveSystem.LoadLevels();
+        Image img = this.gameObject.GetComponent<Image>();
         if (SaveSystem.levelData == null) 
             return;
         LevelData ld = SaveSystem.levelData[index-1];
@@ -37,11 +41,25 @@ public class LevelSelection : SceneSelection
         score = ld.score;
         //index = ld.index;
 
-        if (levelPassed)
-            Debug.Log("Level is passed. Display passed sprite.");
         if (!levelAccessible)
-            // In the future, set the button active to false and change the sprite
-            this.gameObject.SetActive(false);
+        {
+            img.sprite = lockedSprite;
+            img.color = new Color(195, 195, 195);
+            this.gameObject.GetComponent<Button>().interactable = false;
+        }
+        else if(!levelAccessible && !levelPassed)
+        {
+            img.sprite = unlockedSprite;
+            img.color = new Color(255, 255, 255);
+            this.gameObject.GetComponent<Button>().interactable = true;
+        }
+
+        if (levelPassed) {
+            Debug.Log("Level is passed. Display passed sprite.");
+            img.sprite = passedSprite;
+        }
+
+            
         Debug.Log("Loading Level " + index + ": " + levelAccessible + ", " + levelPassed);
     }
     public bool getLevelAccessible() {

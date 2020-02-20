@@ -34,8 +34,8 @@ public class LevelLoader : MonoBehaviour
         }
         else
             SaveSystem.levelData = temp;
-        foreach (LevelData l in SaveSystem.levelData)
-            Debug.Log(l.ToString());
+/*        foreach (LevelData l in SaveSystem.levelData)
+            Debug.Log(l.ToString());*/
         DontDestroyOnLoad(this.gameObject);
     }
 }

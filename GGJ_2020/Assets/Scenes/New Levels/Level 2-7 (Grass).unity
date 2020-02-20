@@ -4368,6 +4368,90 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1843573461394215371, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_text
+      value: Wow!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843573461394215371, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843573461394215371, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843573461394215371, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843573461394215371, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748646755157982087, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_text
+      value: 'Congratulations! You completed all avalible levels!
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748646755157982087, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748646755157982087, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748646755157982087, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748646755157982087, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748646755157982087, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3837980648865694888, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636627522407449187, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_text
+      value: 'Return to Menu
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636627522407449187, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636627522407449187, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636627522407449187, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5889088037203113548, guid: 695289aed63f3b749917b1cb946ff23e,
         type: 3}
       propertyPath: m_Name
