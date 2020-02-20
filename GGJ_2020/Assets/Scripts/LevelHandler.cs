@@ -62,17 +62,16 @@ public class LevelHandler : MonoBehaviour
         StageManager.dayCount = 0;
         if (CheckPlants() && !treeDied)
         {
-            StartCoroutine(Win());
-            
             // level Data update
-            if (buttonIndex > 0) {
+            if (buttonIndex > 0)
+            {
                 SaveSystem.levelData[buttonIndex - 1].levelPassed = true;
-                if (buttonIndex < SaveSystem.levelData.Length) {
+                if (buttonIndex < SaveSystem.levelData.Length)
+                {
                     SaveSystem.levelData[buttonIndex].levelAccessible = true;
                 }
             }
-                
-
+            StartCoroutine(Win());
 /*            int index = int.Parse(SceneManager.GetActiveScene().name.Substring(SceneManager.GetActiveScene().name.IndexOf(" ")));
             SaveSystem.levelData = SaveSystem.getAllLevels();
             if (SaveSystem.levelData.Length > index)

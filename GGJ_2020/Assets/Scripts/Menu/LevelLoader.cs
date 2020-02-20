@@ -7,7 +7,8 @@ public class LevelLoader : MonoBehaviour
     public void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("LevelLoader");
-        if (objs.Length > 1) {
+        if (objs.Length > 1)
+        {
             Destroy(this.gameObject);
             return;
         }
