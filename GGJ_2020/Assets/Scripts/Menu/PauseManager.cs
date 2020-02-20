@@ -22,9 +22,9 @@ public class PauseManager : MenuManager
     public void PauseButton()
     {
         if (isPaused)
-            Pause();
-        else
             Unpause();
+        else
+            Pause();
     }
 
     private void Pause()
@@ -32,16 +32,16 @@ public class PauseManager : MenuManager
         if (!menuOpened)
         {
             OpenMenu(pauseIndex);
+            isPaused = true;
             Time.timeScale = 0f;
-            isPaused = !isPaused;
+            
         }
     }
     private void Unpause()
     {
         CloseMenus();
-        Time.timeScale = 1f;
         menuOpened = false;
-        isPaused = !isPaused;
+        isPaused = false;
+        Time.timeScale = 1f;
     }
-
 }
