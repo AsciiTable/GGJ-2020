@@ -16,6 +16,7 @@ public class LevelSelection : SceneSelection
             SaveLevel();
         }
         LoadLevel();
+        Debug.Log("Index " + index + " loaded");
     }
 
     public void SaveLevel() {
