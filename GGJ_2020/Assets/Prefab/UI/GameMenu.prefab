@@ -3223,7 +3223,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9030705582308909637}
-        m_MethodName: CloseMenus
+        m_MethodName: PauseButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
