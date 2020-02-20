@@ -47,6 +47,7 @@ public class StageManager : MonoBehaviour
 
     private IEnumerator OnSpread(float time = 0.5f)
     {
+        flowerGrowing = true;
         //Spread grass
         if (OnSpreadGrass != null)
         {
@@ -55,8 +56,6 @@ public class StageManager : MonoBehaviour
         }
 
         //Spreads flowers 
-        flowerGrowing = true;
-
         for(int a = listSpreading.Count-1; a >= 0; a--)
         {
             yield return new WaitForSeconds(time);
