@@ -10,6 +10,7 @@ public class LevelHandler : MonoBehaviour
     [SerializeField] private bool gameEnded = false;
     [SerializeField] private int loseScreenIndex = 2;
     [SerializeField] private int winScreenIndex = 3;
+    [SerializeField] protected int buttonIndex = 0;
 
     private Seed[] seeds;
     private GameObject[] blocks;
@@ -51,7 +52,15 @@ public class LevelHandler : MonoBehaviour
         {
             StartCoroutine(Win());
             // level Data update
-            int index = int.Parse(SceneManager.GetActiveScene().name.Substring(SceneManager.GetActiveScene().name.IndexOf(" ")));
+            if (buttonIndex > 0) {
+                SaveSystem.levelData[buttonIndex - 1].levelPassed = true;
+                if (buttonIndex < SaveSystem.levelData.Length) {
+                    SaveSystem.levelData[buttonIndex].levelAccessible = true;
+                }
+            }
+                
+
+/*            int index = int.Parse(SceneManager.GetActiveScene().name.Substring(SceneManager.GetActiveScene().name.IndexOf(" ")));
             SaveSystem.levelData = SaveSystem.getAllLevels();
             if (SaveSystem.levelData.Length > index)
             {
@@ -64,7 +73,7 @@ public class LevelHandler : MonoBehaviour
             else
                 Debug.Log("Index too large for level pass update.");
             
-            SaveSystem.SaveLevels(SaveSystem.levelData);
+            SaveSystem.SaveLevels(SaveSystem.levelData);*/
         }
         else
             Lose();

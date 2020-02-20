@@ -14,4 +14,9 @@ public class LevelData
         score = ls.getScore();
         index = ls.getIndex();
     }
+
+    public override string ToString()
+    {
+        return "Level " + index + ": Accessible = " + levelAccessible + ", Passed = " + levelPassed;
+    }
 }

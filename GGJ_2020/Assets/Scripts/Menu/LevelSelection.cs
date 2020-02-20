@@ -4,30 +4,40 @@ using UnityEngine;
 
 public class LevelSelection : SceneSelection
 {
-    protected bool levelAccessible = false;
-    protected bool levelPassed = false;
-    protected float score = 0f;
-    protected int index = -1;
+    [SerializeField] protected bool levelAccessible = false;
+    [SerializeField] protected bool levelPassed = false;
+    [SerializeField] protected float score = 0f;
+    [SerializeField] protected int index = -1;
     [SerializeField] private bool isAutoAccessible = false;
-    private void OnEnable()
+    private void Start()
     {
-        if (isAutoAccessible) 
+        if (isAutoAccessible && !levelAccessible) {
             levelAccessible = true;
+            SaveLevel();
+        }
+        LoadLevel();
+        Debug.Log("Index " + index + " loaded");
     }
 
     public void SaveLevel() {
         // currently saves and overrides everything
         // will change as more content is added for efficiency 
-        SaveSystem.SaveLevels(SaveSystem.levelData);
+        SaveSystem.UpdateThisLevel(index, score, levelAccessible, levelPassed);
     }
 
     public void LoadLevel() {
-        SaveSystem.levelData = SaveSystem.LoadLevels();
-        LevelData ld = SaveSystem.levelData[index];
+        //SaveSystem.levelData = SaveSystem.LoadLevels();
+        LevelData ld = SaveSystem.levelData[index-1];
         levelAccessible = ld.levelAccessible;
         levelPassed = ld.levelPassed;
         score = ld.score;
         index = ld.index;
+
+        if (levelPassed)
+            Debug.Log("Level is passed. Display passed sprite.");
+        if (!levelAccessible)
+            // In the future, set the button active to false and change the sprite
+            this.gameObject.SetActive(false);
     }
     public bool getLevelAccessible() {
         return levelAccessible;

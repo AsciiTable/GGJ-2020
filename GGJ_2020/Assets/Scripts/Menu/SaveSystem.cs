@@ -13,7 +13,7 @@ public static class SaveSystem
             LevelData[] ld = new LevelData[levelCount];
             Debug.Log("There are " + levelCount + " levels.");
             for (int i = 0; i < levelCount; i++) {
-                map.transform.GetChild(i).gameObject.GetComponent<LevelSelection>().setIndex(i);
+                //map.transform.GetChild(i).gameObject.GetComponent<LevelSelection>().setIndex(i);
                 LevelData ild = new LevelData(map.transform.GetChild(i).gameObject.GetComponent<LevelSelection>());
                 ld[i] = ild;
             }
@@ -51,5 +51,13 @@ public static class SaveSystem
             Debug.LogError("Save file not found.");
             return null;
         }
+    }
+    public static void UpdateThisLevel(int index, float score, bool accessible, bool passed) {
+        if (index > 0) {
+            levelData[index - 1].score = score;
+            levelData[index - 1].levelAccessible = accessible;
+            levelData[index - 1].levelPassed = passed;
+        }
+        SaveLevels(levelData);
     }
 }
