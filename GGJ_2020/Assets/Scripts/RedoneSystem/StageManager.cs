@@ -15,6 +15,8 @@ public class StageManager : MonoBehaviour
     //List of total spreading plants
     private static List<List<GrowingPlant>> listSpreadingTotal = new List<List<GrowingPlant>>();
 
+    public static bool flowerGrowing = false;
+
     private void OnEnable()
     {
         ItemDragHandler.OnClicked += OnNewDay;
@@ -48,7 +50,7 @@ public class StageManager : MonoBehaviour
         }
 
         //Spreads flowers 
-        ItemDragHandler.isDragReady = false;
+        flowerGrowing = true;
 
         for(int a = listSpreading.Count-1; a >= 0; a--)
         {
@@ -60,7 +62,7 @@ public class StageManager : MonoBehaviour
             }
         }
 
-        ItemDragHandler.isDragReady = true;
+        flowerGrowing = false;
         
     }
 

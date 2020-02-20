@@ -17,15 +17,18 @@ public class LevelHandler : MonoBehaviour
     private MenuManager menuManager;
 
     [Header("Animation")]
-    [SerializeField] private SpriteRenderer background;
-    [SerializeField] private Sprite winBackground;
-    [SerializeField] private Sprite winSprite;
+    [SerializeField] private GameObject loseBackground = null;
+    [SerializeField] private GameObject winBackground = null;
+    [SerializeField] private Camera camera;
+    [SerializeField] private Color loseColor = Color.gray;
+    [SerializeField] private Color winColor = Color.cyan;
 
     private void OnEnable()
     {
         seeds = FindObjectsOfType<Seed>();
         blocks = FindObjectOfType<BlockPooler>().GetPool().ToArray();
         menuManager = FindObjectOfType<MenuManager>();
+        camera = FindObjectOfType<Camera>();
 
         UpdateHandler.UpdateOccurred += CheckLevel;
     }
@@ -46,7 +49,9 @@ public class LevelHandler : MonoBehaviour
 
     private IEnumerator EndLevel()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitUntil(() => !StageManager.flowerGrowing);
+
+        Debug.Log("Game Win?: " + (CheckPlants() && !treeDied));
 
         if (CheckPlants() && !treeDied)
         {
@@ -77,6 +82,8 @@ public class LevelHandler : MonoBehaviour
         }
         else
             Lose();
+
+        Debug.Log("Game Win?: " + (CheckPlants() && !treeDied));
     }
 
     //Return true if there are no more plants
@@ -126,11 +133,8 @@ public class LevelHandler : MonoBehaviour
     }
     private void WinAnimation()
     {
-        background.sprite = winBackground;
-
-        foreach(Block block in FindObjectsOfType<Block>())
-        {
-            block.gameObject.GetComponent<SpriteRenderer>().sprite = winSprite;
-        }
+        winBackground.SetActive(true);
+        loseBackground.SetActive(false);
+        camera.backgroundColor = winColor;
     }
 }
