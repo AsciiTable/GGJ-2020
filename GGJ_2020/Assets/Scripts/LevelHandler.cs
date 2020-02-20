@@ -50,6 +50,21 @@ public class LevelHandler : MonoBehaviour
         if (CheckPlants() && !treeDied)
         {
             StartCoroutine(Win());
+            // level Data update
+            int index = int.Parse(SceneManager.GetActiveScene().name.Substring(SceneManager.GetActiveScene().name.IndexOf(" ")));
+            SaveSystem.levelData = SaveSystem.getAllLevels();
+            if (SaveSystem.levelData.Length > index)
+            {
+                SaveSystem.levelData[index].levelPassed = true;
+                if (SaveSystem.levelData.Length > index + 1)
+                    SaveSystem.levelData[index + 1].levelAccessible = true;
+                else
+                    Debug.Log("Index too large for level accessible update.");
+            }
+            else
+                Debug.Log("Index too large for level pass update.");
+            
+            SaveSystem.SaveLevels(SaveSystem.levelData);
         }
         else
             Lose();
