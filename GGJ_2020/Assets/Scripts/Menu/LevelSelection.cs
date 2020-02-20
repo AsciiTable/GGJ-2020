@@ -11,7 +11,7 @@ public class LevelSelection : SceneSelection
     [SerializeField] private bool isAutoAccessible = false;
     private void Start()
     {
-        if (isAutoAccessible) {
+        if (isAutoAccessible && !levelAccessible) {
             levelAccessible = true;
             SaveLevel();
         }
