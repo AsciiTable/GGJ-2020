@@ -14,10 +14,10 @@ public class SpreadingPlant : MonoBehaviour
         GrowingPlant parentPlant = this.gameObject.GetComponent<GrowingPlant>();
         occupiedBlock = parentPlant.getOBlock();
         occupiedBlock.GetComponent<BoxCollider2D>().enabled = false;
-        Block bUp = checkCollision(Vector2.up, (gm.BlockHeight + gm.BorderHeight) / 2);
-        Block bRight = checkCollision(Vector2.right, (gm.BlockWidth + gm.BorderWidth) / 2);
-        Block bDown = checkCollision(Vector2.down, (gm.BlockHeight + gm.BorderHeight) / 2);
-        Block bLeft = checkCollision(Vector2.left, (gm.BlockWidth + gm.BorderWidth) / 2);
+        Block bUp = checkCollision(Vector2.up, (gm.BlockHeight + gm.BorderHeight) / 1.99f);
+        Block bRight = checkCollision(Vector2.right, (gm.BlockWidth + gm.BorderWidth) / 1.99f);
+        Block bDown = checkCollision(Vector2.down, (gm.BlockHeight + gm.BorderHeight) / 1.99f);
+        Block bLeft = checkCollision(Vector2.left, (gm.BlockWidth + gm.BorderWidth) / 1.99f);
 
         if (bUp != null) {
             bUp.Place(oPool.ID, false, parentPlant.uniqueID, buffer);
@@ -39,7 +39,7 @@ public class SpreadingPlant : MonoBehaviour
     }
 
     protected Block checkCollision(Vector2 direction, float distance) {
-        RaycastHit2D hit = Physics2D.Raycast(occupiedBlock.transform.position, direction, 1.5f);
+        RaycastHit2D hit = Physics2D.Raycast(occupiedBlock.transform.position, direction, distance);
         if (hit.collider != null && hit.collider.CompareTag("Block")) {
             Block b = hit.transform.gameObject.GetComponent<Block>();
             if (b != null) {

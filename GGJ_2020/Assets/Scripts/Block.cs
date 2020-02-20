@@ -94,10 +94,10 @@ public class Block : MonoBehaviour
         GridManager gm = GetComponentInParent<GridManager>();
 
         GetComponent<BoxCollider2D>().enabled = false;
-        int? fUp = checkFlowerID(Vector2.up, (gm.BlockHeight + gm.BorderHeight) / 2);
-        int? fRight = checkFlowerID(Vector2.right, (gm.BlockWidth + gm.BorderWidth) / 2);
-        int? fDown = checkFlowerID(Vector2.down, (gm.BlockHeight + gm.BorderHeight) / 2);
-        int? fLeft = checkFlowerID(Vector2.left, (gm.BlockWidth + gm.BorderWidth) / 2);
+        int? fUp = checkFlowerID(Vector2.up, (gm.BlockHeight + gm.BorderHeight) / 1.99f);
+        int? fRight = checkFlowerID(Vector2.right, (gm.BlockWidth + gm.BorderWidth) / 1.99f);
+        int? fDown = checkFlowerID(Vector2.down, (gm.BlockHeight + gm.BorderHeight) / 1.99f);
+        int? fLeft = checkFlowerID(Vector2.left, (gm.BlockWidth + gm.BorderWidth) / 1.99f);
 
         if (fUp.HasValue) {
             Debug.Log("Flower Death");
@@ -120,7 +120,7 @@ public class Block : MonoBehaviour
 
     protected int? checkFlowerID(Vector2 direction, float distance)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1.5f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, distance);
         if (hit.collider != null && hit.collider.CompareTag("Block"))
         {
             Block b = hit.transform.gameObject.GetComponent<Block>();
