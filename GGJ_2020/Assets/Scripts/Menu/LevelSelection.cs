@@ -7,7 +7,7 @@ public class LevelSelection : SceneSelection
     protected bool levelAccessible = false;
     protected bool levelPassed = false;
     protected float score = 0f;
-    protected int index = -1;
+    [SerializeField] protected int index = -1;
     [SerializeField] private bool isAutoAccessible = false;
     private void OnEnable()
     {
@@ -22,7 +22,7 @@ public class LevelSelection : SceneSelection
     }
 
     public void LoadLevel() {
-        SaveSystem.levelData = SaveSystem.LoadLevels();
+        //SaveSystem.levelData = SaveSystem.LoadLevels();
         LevelData ld = SaveSystem.levelData[index];
         levelAccessible = ld.levelAccessible;
         levelPassed = ld.levelPassed;

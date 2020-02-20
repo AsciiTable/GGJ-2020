@@ -51,7 +51,7 @@ public class LevelHandler : MonoBehaviour
         {
             StartCoroutine(Win());
             // level Data update
-            int index = int.Parse(SceneManager.GetActiveScene().name.Substring(SceneManager.GetActiveScene().name.IndexOf(" ")));
+/*            int index = int.Parse(SceneManager.GetActiveScene().name.Substring(SceneManager.GetActiveScene().name.IndexOf(" ")));
             SaveSystem.levelData = SaveSystem.getAllLevels();
             if (SaveSystem.levelData.Length > index)
             {
@@ -64,7 +64,7 @@ public class LevelHandler : MonoBehaviour
             else
                 Debug.Log("Index too large for level pass update.");
             
-            SaveSystem.SaveLevels(SaveSystem.levelData);
+            SaveSystem.SaveLevels(SaveSystem.levelData);*/
         }
         else
             Lose();
