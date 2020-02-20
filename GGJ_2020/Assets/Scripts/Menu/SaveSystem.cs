@@ -52,11 +52,12 @@ public static class SaveSystem
             return null;
         }
     }
-    public static void UpdateThisLevel(int index, int score, bool accessible, bool passed) {
+    public static void UpdateThisLevel(int index, float score, bool accessible, bool passed) {
         if (index > 0) {
             levelData[index - 1].score = score;
             levelData[index - 1].levelAccessible = accessible;
             levelData[index - 1].levelPassed = passed;
-        } 
+        }
+        SaveLevels(levelData);
     }
 }
