@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6741358734950165047}
   - component: {fileID: 6741358734950165046}
   - component: {fileID: 6741358734950165041}
+  - component: {fileID: 4658582606036018237}
   m_Layer: 0
   m_Name: Flower
   m_TagString: Untagged
@@ -108,16 +109,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70251416a35684a4ea1a5a8d3e7ada89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  daySubscriber: {fileID: 6741358734950165040}
   occupiedBlock: {fileID: 0}
   isOriginal: 0
+  uniqueID: -1
   plantName: Flower
   growTime: 0
   spreadTime: 1
   destroyable: 0
   associatedSeed: {fileID: 5505848838250991095, guid: 60f17d0afdb8313429c6e0f5738601ae,
     type: 3}
+  isPlanted: 0
   plantID: 2
+  age: 0
+  spreadEnabled: 1
 --- !u!114 &6741358734950165041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,3 +137,28 @@ MonoBehaviour:
   oPool: {fileID: 7958836830099675286, guid: 79a5269cbd7d3f042a6c14c0516b11c0, type: 3}
   occupiedBlock: {fileID: 0}
   gm: {fileID: 7261592146601406460, guid: cc1da27e8033dd0429015255bb525f42, type: 3}
+--- !u!114 &4658582606036018237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6741358734950165044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09de271e27e3ae34faadcf8e07bcd942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flower: {fileID: 0}
+  flowerSprite: {fileID: 0}
+  flowerColors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0.6931068, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0.76234245, a: 1}
+  - {r: 0.82610524, g: 1, b: 0, a: 1}
+  - {r: 0.8, g: 0.8, b: 0.8, a: 0.8}
+  - {r: 1, g: 0.75529414, b: 0.19999999, a: 0.8}
+  - {r: 1, g: 0.19999999, b: 0.19999999, a: 0.8}
+  - {r: 0.19999999, g: 1, b: 0.8086275, a: 0.8}
+  - {r: 0.86196077, g: 1, b: 0.19999999, a: 0.8}
