@@ -121,8 +121,10 @@ public class LevelHandler : MonoBehaviour
 
     private void Lose()
     {
+        /*
         menuManager.CloseMenus();
         menuManager.OpenMenu(loseScreenIndex);
+        */
     }
     private IEnumerator WinAnimation()
     {
