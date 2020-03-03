@@ -94,10 +94,10 @@ public class Block : MonoBehaviour
         GridManager gm = GetComponentInParent<GridManager>();
 
         GetComponent<BoxCollider2D>().enabled = false;
-        int? fUp = checkFlowerID(Vector2.up, (gm.BlockHeight + gm.BorderHeight) / 1.99f);
-        int? fRight = checkFlowerID(Vector2.right, (gm.BlockWidth + gm.BorderWidth) / 1.99f);
-        int? fDown = checkFlowerID(Vector2.down, (gm.BlockHeight + gm.BorderHeight) / 1.99f);
-        int? fLeft = checkFlowerID(Vector2.left, (gm.BlockWidth + gm.BorderWidth) / 1.99f);
+        int? fUp = checkFlowerID(Vector2.up, (gm.BlockHeight / 1.99f) + gm.BorderHeight);
+        int? fRight = checkFlowerID(Vector2.right, (gm.BlockWidth / 1.99f) + gm.BorderWidth);
+        int? fDown = checkFlowerID(Vector2.down, (gm.BlockHeight / 1.99f) + gm.BorderHeight);
+        int? fLeft = checkFlowerID(Vector2.left, (gm.BlockWidth / 1.99f) + gm.BorderWidth);
 
         if (fUp.HasValue) {
             Debug.Log("Flower Death");
