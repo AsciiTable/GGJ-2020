@@ -10,9 +10,12 @@ public class FullAccessMode : MonoBehaviour
         this.gameObject.GetComponent<Toggle>().isOn = SaveSystem.fullAccessMode;
     }
     public void ToggleFullAccessMode() {
-        if (this.gameObject.GetComponent<Toggle>().isOn && !SaveSystem.fullAccessMode)
+
+        if (this.gameObject.GetComponent<Toggle>().isOn && !SaveSystem.fullAccessMode) {
             SaveSystem.EnableFullAccessMode();
-        else if(!this.gameObject.GetComponent<Toggle>().isOn && SaveSystem.fullAccessMode)
+        }
+        else if (!this.gameObject.GetComponent<Toggle>().isOn && SaveSystem.fullAccessMode) {
             SaveSystem.DisableFullAccessMode();
+        } 
     }
 }

@@ -1,12 +1,14 @@
 ﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public static class SaveSystem
 {
     public static LevelData[] levelData;
     public static SystemSettingsData systemSettingsData;
     public static bool fullAccessMode = false;
+/*    public static Vector3 mapScroll;*/
     public static LevelData[] getAllLevels() {
         GameObject map = GameObject.Find("/Canvas/MapContainer/Map");
         if (map != null)
@@ -68,6 +70,9 @@ public static class SaveSystem
             systemSettingsData = bf.Deserialize(stream) as SystemSettingsData;
             stream.Close();
             fullAccessMode = systemSettingsData.fullAccessEnabled;
+/*            mapScroll.x = systemSettingsData.mapScroll[0];
+            mapScroll.y = systemSettingsData.mapScroll[1];
+            mapScroll.z = systemSettingsData.mapScroll[2];*/
             return systemSettingsData;
         }
         else
@@ -90,8 +95,16 @@ public static class SaveSystem
             levelData[i].levelAccessible = true;
         }
         fullAccessMode = true;
+        if (systemSettingsData == null)
+            systemSettingsData = new SystemSettingsData();
         systemSettingsData.fullAccessEnabled = true;
+/*        GameObject map = GameObject.Find("/Canvas/MapContainer/Map");
+        mapScroll = map.gameObject.GetComponent<RectTransform>().transform.position;
+        systemSettingsData.mapScroll[0] = mapScroll.x;
+        systemSettingsData.mapScroll[1] = mapScroll.y;
+        systemSettingsData.mapScroll[2] = mapScroll.z;*/
         SaveLevels(levelData);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         SaveSystemSettings(systemSettingsData);
     }
     public static void DisableFullAccessMode()
@@ -103,20 +116,28 @@ public static class SaveSystem
                 levelData[i].levelAccessible = false;
             else if (levelData[i].levelPassed && foundend) {
                 levelData[i].levelAccessible = false;
-                levelData[i].levelPassed = false; // erases win data
-
+                //levelData[i].levelPassed = false; // erases win data
             }
 
             if (!foundend) {
-                if ((i-1) > 0 && levelData[i - 1].levelPassed && !levelData[i].levelPassed) {
+                if ((i-1) >= 0 && levelData[i - 1].levelPassed && !levelData[i].levelPassed) {
                     levelData[i].levelAccessible = true;
                     foundend = true;
                 }
             }
         }
         fullAccessMode = false;
+        if (systemSettingsData == null)
+            systemSettingsData = new SystemSettingsData();
         systemSettingsData.fullAccessEnabled = false;
+        GameObject map = GameObject.Find("/Canvas/MapContainer/Map");
+/*        mapScroll = map.gameObject.GetComponent<RectTransform>().transform.position;
+        systemSettingsData.mapScroll[0] = mapScroll.x;
+        systemSettingsData.mapScroll[1] = mapScroll.y;
+        systemSettingsData.mapScroll[2] = mapScroll.z;*/
         SaveLevels(levelData);
+        LoadLevels();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         SaveSystemSettings(systemSettingsData);
     }
 }

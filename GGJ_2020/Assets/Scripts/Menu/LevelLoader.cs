@@ -16,7 +16,9 @@ public class LevelLoader : MonoBehaviour
         GameObject Tog = GameObject.FindGameObjectWithTag("FullAccess");
         SystemSettingsData ssd = SaveSystem.LoadSystemSettings();
         if (ssd == null) {
-           ssd = new SystemSettingsData();
+/*            GameObject map = GameObject.Find("/Canvas/MapContainer/Map");
+            SaveSystem.mapScroll = map.gameObject.GetComponent<RectTransform>().transform.position;*/
+            ssd = new SystemSettingsData();
         }
         Tog.gameObject.GetComponent<Toggle>().isOn = ssd.fullAccessEnabled;
         LevelData[] temp = SaveSystem.LoadLevels();
