@@ -6791,7 +6791,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 689793188, guid: 0c681dc7fdaa216439d65fd43c81795e, type: 3}
       propertyPath: buttonIndex
-      value: 14
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 729744107, guid: 0c681dc7fdaa216439d65fd43c81795e, type: 3}
       propertyPath: m_ChunkCullingBounds.y

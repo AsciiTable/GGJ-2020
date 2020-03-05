@@ -69,7 +69,6 @@ public class BASICBOITEMPANANIM_PLANTS : MonoBehaviour
             if (CheckColorBank() != -1)
             {
                 flowerSprite.sprite = flowerSprites[CheckColorBank() % flowerSprites.Length];
-                Debug.Log(CheckColorBank());
                 flowerSprite.color = IDColors[CheckColorBank()];
             }
             else 

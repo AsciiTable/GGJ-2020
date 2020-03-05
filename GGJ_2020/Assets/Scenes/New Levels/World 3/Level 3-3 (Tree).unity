@@ -2792,11 +2792,90 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1843573461394215371, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_text
+      value: Wow!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843573461394215371, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843573461394215371, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843573461394215371, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748646755157982087, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_text
+      value: 'Congratulations! You completed all avalible levels!
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748646755157982087, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748646755157982087, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748646755157982087, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748646755157982087, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748646755157982087, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3837980648865694888, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636627522407449187, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_text
+      value: 'Level Select
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636627522407449187, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636627522407449187, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636627522407449187, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5889088036621390074, guid: 695289aed63f3b749917b1cb946ff23e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1321878728}
+      objectReference: {fileID: 5889088036850130172}
     - target: {fileID: 5889088036621390074, guid: 695289aed63f3b749917b1cb946ff23e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -2862,20 +2941,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8272958543891508449, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272958543891508449, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272958543891508449, guid: 695289aed63f3b749917b1cb946ff23e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Overworld
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 695289aed63f3b749917b1cb946ff23e, type: 3}
---- !u!114 &1321878728 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5889088037962258491, guid: 695289aed63f3b749917b1cb946ff23e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1321878727}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eec619e858fcbd4f8d47cb08ad017f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1337519345
 GameObject:
   m_ObjectHideFlags: 0
@@ -5517,7 +5599,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 689793188, guid: 0c681dc7fdaa216439d65fd43c81795e, type: 3}
       propertyPath: buttonIndex
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 729744107, guid: 0c681dc7fdaa216439d65fd43c81795e, type: 3}
       propertyPath: m_ChunkCullingBounds.y
@@ -8878,6 +8960,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1661b65370e38f54ebb0d28c6d44ebf9, type: 3}
+--- !u!114 &5889088036850130172 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5889088037962258491, guid: 695289aed63f3b749917b1cb946ff23e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1321878727}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eec619e858fcbd4f8d47cb08ad017f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8388209702112046647
 PrefabInstance:
   m_ObjectHideFlags: 0
