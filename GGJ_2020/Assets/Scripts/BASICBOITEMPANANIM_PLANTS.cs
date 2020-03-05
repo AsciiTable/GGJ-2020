@@ -11,8 +11,9 @@ public class BASICBOITEMPANANIM_PLANTS : MonoBehaviour
     [SerializeField] private Color[] flowerColors;
     private static List<int> colorIDS;
     private static Color[] IDColors;
-    private static int newestColor = 0;
+    private static int newestColor = -1;
     private static bool newScene = true;
+    private static int round = 0;
     [SerializeField] private Sprite[] flowerSprites;
     private void OnEnable()
     {
@@ -68,17 +69,23 @@ public class BASICBOITEMPANANIM_PLANTS : MonoBehaviour
             if (CheckColorBank() != -1)
             {
                 flowerSprite.sprite = flowerSprites[CheckColorBank() % flowerSprites.Length];
+                Debug.Log(CheckColorBank());
+                flowerSprite.color = IDColors[CheckColorBank()];
             }
             else 
             {
                 if(flowerColors.Length > newestColor)
                 {
+                    if (newestColor % flowerSprites.Length == 0 && newestColor > 0)
+                    {
+                        round++;
+                        Debug.Log("This happens ever");
+                    }
                     colorIDS.Add(flower.uniqueID);
-                    flowerSprite.color = flowerColors[newestColor];
-                    IDColors[newestColor] = flowerColors[newestColor];
+                    flowerSprite.color = flowerColors[round];
+                    IDColors[newestColor] = flowerColors[round];
                     newestColor++;
                 }
-                
             }
         }
     }
