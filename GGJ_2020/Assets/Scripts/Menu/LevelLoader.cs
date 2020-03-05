@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelLoader : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class LevelLoader : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
+        GameObject Tog = GameObject.FindGameObjectWithTag("FullAccess");
+        SystemSettingsData ssd = SaveSystem.LoadSystemSettings();
+        if (ssd == null) {
+           ssd = new SystemSettingsData();
+        }
+        Tog.gameObject.GetComponent<Toggle>().isOn = ssd.fullAccessEnabled;
         LevelData[] temp = SaveSystem.LoadLevels();
         if (temp == null)
         {

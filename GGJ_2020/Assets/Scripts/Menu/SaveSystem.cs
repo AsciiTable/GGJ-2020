@@ -5,6 +5,7 @@ using UnityEngine;
 public static class SaveSystem
 {
     public static LevelData[] levelData;
+    public static SystemSettingsData systemSettingsData;
     public static bool fullAccessMode = false;
     public static LevelData[] getAllLevels() {
         GameObject map = GameObject.Find("/Canvas/MapContainer/Map");
@@ -33,20 +34,45 @@ public static class SaveSystem
         stream.Close();
     }
 
+    public static void SaveSystemSettings(SystemSettingsData ssd) {
+        BinaryFormatter bf = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/systemSettings.bin";
+        FileStream stream = new FileStream(path, FileMode.Create);
+        bf.Serialize(stream, ssd);
+        stream.Close();
+    }
+
     public static LevelData[] LoadLevels() {
         string path = Application.persistentDataPath + "/levels.bin";
         if (File.Exists(path))
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
-
             LevelData[] ld = bf.Deserialize(stream) as LevelData[];
             stream.Close();
             levelData = ld;
             return ld;
         }
         else {
-            Debug.LogError("Save file not found.");
+            Debug.LogError("Level Data save file not found.");
+            return null;
+        }
+    }
+    public static SystemSettingsData LoadSystemSettings()
+    {
+        string path = Application.persistentDataPath + "/systemSettings.bin";
+        if (File.Exists(path))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            systemSettingsData = bf.Deserialize(stream) as SystemSettingsData;
+            stream.Close();
+            fullAccessMode = systemSettingsData.fullAccessEnabled;
+            return systemSettingsData;
+        }
+        else
+        {
+            Debug.LogError("System Settings save file not found.");
             return null;
         }
     }
@@ -60,16 +86,18 @@ public static class SaveSystem
     }
 
     public static void EnableFullAccessMode() {
-        for (int i = 0; i < levelData.Length; i++) {
+        for (int i = 0; i < SaveSystem.levelData.Length; i++) {
             levelData[i].levelAccessible = true;
         }
         fullAccessMode = true;
+        systemSettingsData.fullAccessEnabled = true;
+        SaveLevels(levelData);
+        SaveSystemSettings(systemSettingsData);
     }
-
     public static void DisableFullAccessMode()
     {
         bool foundend = false;
-        for (int i = 0; i < levelData.Length; i++)
+        for (int i = 0; i < SaveSystem.levelData.Length; i++)
         {
             if (!levelData[i].levelPassed)
                 levelData[i].levelAccessible = false;
@@ -87,5 +115,8 @@ public static class SaveSystem
             }
         }
         fullAccessMode = false;
+        systemSettingsData.fullAccessEnabled = false;
+        SaveLevels(levelData);
+        SaveSystemSettings(systemSettingsData);
     }
 }
