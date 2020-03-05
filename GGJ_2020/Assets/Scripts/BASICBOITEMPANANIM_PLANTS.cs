@@ -13,6 +13,7 @@ public class BASICBOITEMPANANIM_PLANTS : MonoBehaviour
     private static Color[] IDColors;
     private static int newestColor = 0;
     private static bool newScene = true;
+    [SerializeField] private Sprite[] flowerSprites;
     private void OnEnable()
     {
         if (flower == null)
