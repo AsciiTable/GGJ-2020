@@ -5,6 +5,7 @@ using UnityEngine;
 public static class SaveSystem
 {
     public static LevelData[] levelData;
+    public static bool fullAccessMode = false;
     public static LevelData[] getAllLevels() {
         GameObject map = GameObject.Find("/Canvas/MapContainer/Map");
         if (map != null)
@@ -56,5 +57,35 @@ public static class SaveSystem
             levelData[index - 1].levelPassed = passed;
         }
         SaveLevels(levelData);
+    }
+
+    public static void EnableFullAccessMode() {
+        for (int i = 0; i < levelData.Length; i++) {
+            levelData[i].levelAccessible = true;
+        }
+        fullAccessMode = true;
+    }
+
+    public static void DisableFullAccessMode()
+    {
+        bool foundend = false;
+        for (int i = 0; i < levelData.Length; i++)
+        {
+            if (!levelData[i].levelPassed)
+                levelData[i].levelAccessible = false;
+            else if (levelData[i].levelPassed && foundend) {
+                levelData[i].levelAccessible = false;
+                levelData[i].levelPassed = false; // erases win data
+
+            }
+
+            if (!foundend) {
+                if ((i-1) > 0 && levelData[i - 1].levelPassed && !levelData[i].levelPassed) {
+                    levelData[i].levelAccessible = true;
+                    foundend = true;
+                }
+            }
+        }
+        fullAccessMode = false;
     }
 }
