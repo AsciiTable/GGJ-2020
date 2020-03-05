@@ -9,6 +9,7 @@ TagManager:
   - Grass
   - LevelLoader
   - AudioManager
+  - FullAccess
   layers:
   - Default
   - TransparentFX
