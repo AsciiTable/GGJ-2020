@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MenuManager
 {
@@ -11,6 +12,9 @@ public class PauseManager : MenuManager
     private void Update()
     {
         PauseInput();
+        if (Input.GetButtonDown("ResetStage")) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     private void PauseInput()
