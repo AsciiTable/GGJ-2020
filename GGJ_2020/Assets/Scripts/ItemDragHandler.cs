@@ -19,6 +19,7 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
     void Start() {
         img = this.gameObject.GetComponent<Image>();
         dayCountDisplayer = GameObject.FindGameObjectWithTag("dayCounter");
+        dayCountDisplayer.GetComponent<TextMeshProUGUI>().SetText("Day " + StageManager.dayCount);
     }
     
     public void OnDrag(PointerEventData eventData)
