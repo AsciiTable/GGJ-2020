@@ -12,7 +12,7 @@ public class BASICBOITEMPANANIM_PLANTS : MonoBehaviour
     private static List<int> colorIDS;
     private static Color[] IDColors;
     private static int newestColor = -1;
-    private static bool newScene = true;
+    [HideInInspector]public static bool newScene = true;
     private static int round = 0;
     [SerializeField] private Sprite[] flowerSprites;
     private void OnEnable()
@@ -40,14 +40,7 @@ public class BASICBOITEMPANANIM_PLANTS : MonoBehaviour
 
     private void Start()
     {
-        if (newScene)
-        {
-            Debug.Log("And so colors begin anew");
-            newScene = false;
-            colorIDS = new List<int>();
-            newestColor = 0;
-            IDColors = new Color[flowerColors.Length];
-        }
+
     }
     private void OnDisable()
     {
@@ -60,6 +53,14 @@ public class BASICBOITEMPANANIM_PLANTS : MonoBehaviour
 
     private void Update()
     {
+        if (newScene)
+        {
+            Debug.Log("And so colors begin anew");
+            newScene = false;
+            colorIDS = new List<int>();
+            newestColor = 0;
+            IDColors = new Color[flowerColors.Length];
+        }
         if (!flower.spreadEnabled && flowerSprite.color != Color.black)
         {
             flowerSprite.color = Color.black;
@@ -78,12 +79,13 @@ public class BASICBOITEMPANANIM_PLANTS : MonoBehaviour
                     if (newestColor % flowerSprites.Length == 0 && newestColor > 0)
                     {
                         round++;
-                        Debug.Log("This happens ever");
+                        round = round % IDColors.Length;
                     }
                     colorIDS.Add(flower.uniqueID);
                     flowerSprite.color = flowerColors[round];
                     IDColors[newestColor] = flowerColors[round];
                     newestColor++;
+                    newestColor = newestColor % IDColors.Length;
                 }
             }
         }
