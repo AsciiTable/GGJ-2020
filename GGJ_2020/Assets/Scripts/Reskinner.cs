@@ -11,9 +11,6 @@ public class Reskinner : MonoBehaviour
         Tree
     }
     private enum PlantSpriteName { 
-        Flower1,
-        Flower2,
-        Flower3,
         Flower11,
         Flower21
     }
@@ -24,9 +21,10 @@ public class Reskinner : MonoBehaviour
     {
         var subSprites = Resources.LoadAll<Sprite>(plantType + "/" + spriteSheetName);
         Debug.Log(plantType + "/" + spriteSheetName);
+        // All of this is unecessary if we just have 1 varient; clarify with team first
         foreach (var renderer in GetComponentsInChildren<SpriteRenderer>()) { 
             string spriteName = renderer.sprite.name;
-            var newSprite = Array.Find(subSprites, item => item.name == spriteName);// subject to change for frame-by-frame
+            var newSprite = Array.Find(subSprites, item => item.name == spriteName);// subject to change for frame-by-frame (figure out what this does first)
             if (newSprite)
                 renderer.sprite = newSprite;
         }
