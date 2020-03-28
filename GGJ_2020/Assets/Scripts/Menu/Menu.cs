@@ -19,6 +19,7 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
         BASICBOITEMPANANIM_PLANTS.newScene = true;
+        PlantRotationAnimation.newScene = true;
     }
     public void ChangeMenus(int index)
     {
@@ -36,16 +37,19 @@ public class Menu : MonoBehaviour
         else
             SceneManager.LoadScene("Overworld");
         BASICBOITEMPANANIM_PLANTS.newScene = true;
+        PlantRotationAnimation.newScene = true;
     }
     public void LastScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         BASICBOITEMPANANIM_PLANTS.newScene = true;
+        PlantRotationAnimation.newScene = true;
     }
     public void RestartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         BASICBOITEMPANANIM_PLANTS.newScene = true;
+        PlantRotationAnimation.newScene = true;
     }
 
 }

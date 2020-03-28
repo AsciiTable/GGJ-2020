@@ -109,6 +109,7 @@ public class StageManager : MonoBehaviour
                     foreach(GrowingPlant plant in plants)
                     {
                         plant.GetComponent<Flower>().spreadEnabled = false;
+                        plant.GetComponent<Flower>().plantIsDead = true;
                     }
 
                     return;

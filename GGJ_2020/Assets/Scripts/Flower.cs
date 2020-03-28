@@ -21,20 +21,7 @@ public class Flower : GrowingPlant
             spreadEnabled = true;
         }
         StageManager.OnGrowth += giveGrowthToPlant;
-    }
-
-    private void Update()
-    {
-        if (wait == true)
-        {
-            wait = false;
-        }
-        else if(!wait && spreadTime > 0 && !planted)
-        {
-            //StageManager.OnSpread += giveSpreadToPlant;
-            StageManager.AddSpreadingPlant(GetComponent<Flower>(), uniqueID);
-            planted = true;
-        }
+        UpdateHandler.UpdateOccurred += waitForAnimation;
     }
 
     private void OnDisable()
@@ -42,6 +29,7 @@ public class Flower : GrowingPlant
         StageManager.OnPlant -= giveLifeToPlant;
         StageManager.OnGrowth -= giveGrowthToPlant;
         //StageManager.OnSpread -= giveSpreadToPlant;
+        UpdateHandler.UpdateOccurred -= waitForAnimation;
     }
 
     protected override void giveLifeToPlant()
@@ -85,4 +73,16 @@ public class Flower : GrowingPlant
         }
     }
 
+    protected void waitForAnimation() {
+        if (wait == true)
+        {
+            wait = false;
+        }
+        else if (!wait && spreadTime > 0 && !planted)
+        {
+            //StageManager.OnSpread += giveSpreadToPlant;
+            StageManager.AddSpreadingPlant(GetComponent<Flower>(), uniqueID);
+            planted = true;
+        }
+    }
 }

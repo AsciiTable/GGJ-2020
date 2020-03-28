@@ -50,6 +50,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3180112268336837685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43999990810758160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67188a73510245b449015acdbdc183ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plant: {fileID: 0}
+  plantSprite: {fileID: 0}
+  plantSprites:
+  - {fileID: 21300000, guid: 6579aff1154b6c74bb4f2da806dca2b6, type: 3}
+  - {fileID: 21300000, guid: 5febd0af21aa6da4cb77fdfc43d75ca1, type: 3}
+  - {fileID: 21300000, guid: 7a1a8f5b7f1bc0a4f908d1662a66c586, type: 3}
+  - {fileID: 21300000, guid: aae8f7f35f32ec446a9c117d21c9c02c, type: 3}
+  - {fileID: 21300000, guid: 80371f943210feb4ea35a79e62831954, type: 3}
 --- !u!1 &43999992057775483
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +360,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 43999992057775484}
     m_Modifications:
+    - target: {fileID: 4658582606036018237, guid: c4dd86dbe521d1e4bad9f2bdfabd4b91,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6741358734950165041, guid: c4dd86dbe521d1e4bad9f2bdfabd4b91,
         type: 3}
       propertyPath: oPool
@@ -448,6 +473,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4dd86dbe521d1e4bad9f2bdfabd4b91, type: 3}
+--- !u!1 &43999990810758160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6741358734950165044, guid: c4dd86dbe521d1e4bad9f2bdfabd4b91,
+    type: 3}
+  m_PrefabInstance: {fileID: 6706510547502442020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &43999990810758161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6741358734950165045, guid: c4dd86dbe521d1e4bad9f2bdfabd4b91,

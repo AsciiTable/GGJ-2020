@@ -15,6 +15,7 @@ public class PauseManager : MenuManager
         if (Input.GetButtonDown("ResetStage")) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             BASICBOITEMPANANIM_PLANTS.newScene = true;
+            PlantRotationAnimation.newScene = true;
         }
     }
 
