@@ -50,6 +50,7 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         BASICBOITEMPANANIM_PLANTS.newScene = true;
         PlantRotationAnimation.newScene = true;
+        StageManager.dayCount = 0;
     }
 
 }
