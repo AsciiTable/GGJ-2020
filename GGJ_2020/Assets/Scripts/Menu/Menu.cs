@@ -18,8 +18,8 @@ public class Menu : MonoBehaviour
     public void ChangeScene(string sceneName )
     {
         SceneManager.LoadScene(sceneName);
-        BASICBOITEMPANANIM_PLANTS.newScene = true;
-        PlantRotationAnimation.newScene = true;
+        PlantRotationAnimation.onNewScene();
+        StageManager.dayCount = 0;
     }
     public void ChangeMenus(int index)
     {
@@ -36,20 +36,19 @@ public class Menu : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         else
             SceneManager.LoadScene("Overworld");
-        BASICBOITEMPANANIM_PLANTS.newScene = true;
-        PlantRotationAnimation.newScene = true;
+        PlantRotationAnimation.onNewScene();
+        StageManager.dayCount = 0;
     }
     public void LastScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        BASICBOITEMPANANIM_PLANTS.newScene = true;
-        PlantRotationAnimation.newScene = true;
+        PlantRotationAnimation.onNewScene();
+        StageManager.dayCount = 0;
     }
     public void RestartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        BASICBOITEMPANANIM_PLANTS.newScene = true;
-        PlantRotationAnimation.newScene = true;
+        PlantRotationAnimation.onNewScene();
         StageManager.dayCount = 0;
     }
 

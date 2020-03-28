@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6741358734950165047}
   - component: {fileID: 6741358734950165046}
   - component: {fileID: 6741358734950165041}
-  - component: {fileID: 4658582606036018237}
+  - component: {fileID: 1127154292481265845}
   m_Layer: 0
   m_Name: Flower
   m_TagString: Untagged
@@ -121,6 +121,7 @@ MonoBehaviour:
   isPlanted: 0
   plantID: 2
   age: 0
+  plantIsDead: 0
   spreadEnabled: 1
 --- !u!114 &6741358734950165041
 MonoBehaviour:
@@ -137,7 +138,7 @@ MonoBehaviour:
   oPool: {fileID: 7958836830099675286, guid: 79a5269cbd7d3f042a6c14c0516b11c0, type: 3}
   occupiedBlock: {fileID: 0}
   gm: {fileID: 7261592146601406460, guid: cc1da27e8033dd0429015255bb525f42, type: 3}
---- !u!114 &4658582606036018237
+--- !u!114 &1127154292481265845
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,23 +147,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6741358734950165044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09de271e27e3ae34faadcf8e07bcd942, type: 3}
+  m_Script: {fileID: 11500000, guid: 67188a73510245b449015acdbdc183ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flower: {fileID: 0}
-  flowerSprite: {fileID: 0}
-  flowerColors:
-  - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.6931068, b: 0, a: 1}
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 1, b: 0.76234245, a: 1}
-  - {r: 0.82610524, g: 1, b: 0, a: 1}
-  - {r: 0.8, g: 0.8, b: 0.8, a: 0.8}
-  - {r: 1, g: 0.75529414, b: 0.19999999, a: 0.8}
-  - {r: 1, g: 0.19999999, b: 0.19999999, a: 0.8}
-  - {r: 0.19999999, g: 1, b: 0.8086275, a: 0.8}
-  - {r: 0.86196077, g: 1, b: 0.19999999, a: 0.8}
-  flowerSprites:
+  plant: {fileID: 0}
+  plantSprite: {fileID: 0}
+  plantSprites:
   - {fileID: 21300000, guid: 6579aff1154b6c74bb4f2da806dca2b6, type: 3}
   - {fileID: 21300000, guid: 5febd0af21aa6da4cb77fdfc43d75ca1, type: 3}
   - {fileID: 21300000, guid: 7a1a8f5b7f1bc0a4f908d1662a66c586, type: 3}
+  - {fileID: 21300000, guid: aae8f7f35f32ec446a9c117d21c9c02c, type: 3}
+  - {fileID: 21300000, guid: 80371f943210feb4ea35a79e62831954, type: 3}

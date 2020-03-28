@@ -16,7 +16,7 @@ public class GrowingPlant : MonoBehaviour
     [SerializeField]protected bool isPlanted = false;
     public Structs.id plantID = Structs.id.empty;
     [SerializeField] protected int age = 0;
-    [SerializeField] public bool plantIsDead = true;
+    [SerializeField] public bool plantIsDead = false;
 
     public int Age { get => age; }
     public int setSpreadTime { set => spreadTime = value; }

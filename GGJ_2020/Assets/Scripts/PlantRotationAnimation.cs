@@ -30,18 +30,22 @@ public class PlantRotationAnimation : MonoBehaviour
         UpdateHandler.UpdateOccurred -= UpdateStatus;
         //ItemDragHandler.OnClicked += UpdateStatus;
         newScene = true;
+        spriteIndex = 0;
     }
     private void UpdateStatus() {
-        if (newScene)
+        if (newScene) {
+            onNewScene();
             newScene = false;
+        }
+            
         if (plant.plantIsDead && !initDeathAnim) {
             // Play death animation ONCE
-            Debug.Log("Flower has DIED in \"Animation\"");
             plantSprite.color = Color.black;
             initDeathAnim = true;
         }
         if (!plant.plantIsDead) {
             if (CheckPlantIDs() != -1){
+                Debug.Log("Plant ID: " + CheckPlantIDs());
                 plantSprite.sprite = plantSprites[CheckPlantIDs()%plantSprites.Length];
             }
             else {
@@ -60,5 +64,11 @@ public class PlantRotationAnimation : MonoBehaviour
                 return i;
         }
         return -1;
+    }
+
+    public static void onNewScene(){
+        plantIDs = new List<int>();
+        spriteIndex = 0;
+        newScene = true;
     }
 }
