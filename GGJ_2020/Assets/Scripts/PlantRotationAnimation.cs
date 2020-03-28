@@ -45,7 +45,6 @@ public class PlantRotationAnimation : MonoBehaviour
         }
         if (!plant.plantIsDead) {
             if (CheckPlantIDs() != -1){
-                Debug.Log("Plant ID: " + CheckPlantIDs());
                 plantSprite.sprite = plantSprites[CheckPlantIDs()%plantSprites.Length];
             }
             else {

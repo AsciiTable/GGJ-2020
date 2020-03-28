@@ -70,6 +70,20 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7a1a8f5b7f1bc0a4f908d1662a66c586, type: 3}
   - {fileID: 21300000, guid: aae8f7f35f32ec446a9c117d21c9c02c, type: 3}
   - {fileID: 21300000, guid: 80371f943210feb4ea35a79e62831954, type: 3}
+--- !u!114 &1034482845182662534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43999990810758160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff0a23262e6fb4c4c856b9b27955bcd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantType: 1
+  spriteSheetName: Flower1
 --- !u!1 &43999992057775483
 GameObject:
   m_ObjectHideFlags: 0

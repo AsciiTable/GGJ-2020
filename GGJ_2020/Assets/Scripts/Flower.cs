@@ -55,7 +55,7 @@ public class Flower : GrowingPlant
             {
                 sp = this.gameObject.GetComponent<SpreadingPlant>();
                 sp.Spread(true);
-                Debug.Log("OG spread");
+                //Debug.Log("OG spread");
                 //Flower.currdate = StageManager.dayCount;
                 spreadTime = 0;
             }
@@ -68,7 +68,7 @@ public class Flower : GrowingPlant
         if (spreadTime > 0 && spreadEnabled) {
             sp = this.gameObject.GetComponent<SpreadingPlant>();
             sp.Spread();
-            Debug.Log("Non og spread");
+            //Debug.Log("Non og spread");
             spreadTime = 0;
         }
     }
