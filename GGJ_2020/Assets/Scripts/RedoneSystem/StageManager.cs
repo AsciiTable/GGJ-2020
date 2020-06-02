@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class StageManager : MonoBehaviour
@@ -14,9 +15,17 @@ public class StageManager : MonoBehaviour
     private static List<List<GrowingPlant>> listSpreading = new List<List<GrowingPlant>>();
     //List of total spreading plants
     private static List<List<GrowingPlant>> listSpreadingTotal = new List<List<GrowingPlant>>();
+    private Texture2D cancelCursor;
+    public GameObject dayCountDisplayer;
 
     public static bool flowerGrowing = false;
 
+    public void Start()
+    {
+        cancelCursor = (Texture2D)Resources.Load("cancel-icon");
+        dayCountDisplayer = GameObject.FindGameObjectWithTag("dayCounter");
+        dayCountDisplayer.GetComponent<TextMeshProUGUI>().SetText("Day " + StageManager.dayCount);
+    }
     private void OnEnable()
     {
         ItemDragHandler.OnClicked += OnNewDay;
@@ -40,13 +49,13 @@ public class StageManager : MonoBehaviour
         if (OnGrowth != null) {
             OnGrowth();
         }
-    
-        StartCoroutine(OnSpread());
 
+        StartCoroutine(OnSpread());
     }
 
     private IEnumerator OnSpread(float time = 0.5f)
     {
+        Cursor.SetCursor(cancelCursor, Vector2.zero, CursorMode.Auto);
         flowerGrowing = true;
         //Spread grass
         if (OnSpreadGrass != null)
@@ -67,7 +76,9 @@ public class StageManager : MonoBehaviour
         }
 
         flowerGrowing = false;
-        
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        StageManager.dayCount++;
+        dayCountDisplayer.GetComponent<TextMeshProUGUI>().SetText("Day " + StageManager.dayCount);
     }
 
     public static void AddSpreadingPlant(GrowingPlant plant, int UniqueID)
@@ -111,7 +122,7 @@ public class StageManager : MonoBehaviour
                         plant.GetComponent<Flower>().spreadEnabled = false;
                         plant.GetComponent<Flower>().plantIsDead = true;
                     }
-
+                    
                     return;
                 }
             }

@@ -11,15 +11,14 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public delegate void ClickAction();
     public static event ClickAction OnClicked;
-    public GameObject dayCountDisplayer;
+
 
     public Image img;
     public Seed seed;
 
     void Start() {
         img = this.gameObject.GetComponent<Image>();
-        dayCountDisplayer = GameObject.FindGameObjectWithTag("dayCounter");
-        dayCountDisplayer.GetComponent<TextMeshProUGUI>().SetText("Day " + StageManager.dayCount);
+
     }
     
     public void OnDrag(PointerEventData eventData)
@@ -36,9 +35,6 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
                 if (seed.PlaceSeed()) {
                     if (OnClicked != null)
                         OnClicked();
-                    StageManager.dayCount++;
-                    Debug.Log("DAY " + StageManager.dayCount);
-                    dayCountDisplayer.GetComponent<TextMeshProUGUI>().SetText("Day " + StageManager.dayCount);
                 }  
             }
         }
