@@ -54,10 +54,10 @@ public class Flower : GrowingPlant
             if (isOriginal)
             {
                 sp = this.gameObject.GetComponent<SpreadingPlant>();
-                sp.Spread(true);
+                //sp.Spread(true);
                 //Debug.Log("OG spread");
                 //Flower.currdate = StageManager.dayCount;
-                spreadTime = 0;
+                //spreadTime = 0;
             }
 
             isPlanted = true;
