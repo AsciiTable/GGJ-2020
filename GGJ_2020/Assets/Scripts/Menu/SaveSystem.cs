@@ -8,6 +8,8 @@ public static class SaveSystem
     public static LevelData[] levelData;
     public static SystemSettingsData systemSettingsData;
     public static bool fullAccessMode = false;
+    public static int completedLevelCount;
+    public static int totalLevelCount;
 /*    public static Vector3 mapScroll;*/
     public static LevelData[] getAllLevels() {
         GameObject map = GameObject.Find("/Canvas/MapContainer/Map");
@@ -15,6 +17,8 @@ public static class SaveSystem
         {
             int levelCount = map.transform.childCount;
             LevelData[] ld = new LevelData[levelCount];
+            completedLevelCount = 0;
+            totalLevelCount = levelCount;
             for (int i = 0; i < levelCount; i++) {
                 LevelData ild = new LevelData(map.transform.GetChild(i).gameObject.GetComponent<LevelSelection>());
                 Debug.Log("Loaded " + ild.ToString());

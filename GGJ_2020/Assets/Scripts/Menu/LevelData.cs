@@ -19,4 +19,5 @@ public class LevelData
     {
         return "Level " + index + ": Accessible = " + levelAccessible + ", Passed = " + levelPassed;
     }
+
 }

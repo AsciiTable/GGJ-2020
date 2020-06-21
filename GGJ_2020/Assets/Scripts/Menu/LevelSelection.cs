@@ -58,6 +58,7 @@ public class LevelSelection : SceneSelection
         if (levelPassed) {
             Debug.Log("Level is passed. Display passed sprite.");
             img.sprite = passedSprite;
+            LevelLoader.UpdateProgressionText();
         }
 
             

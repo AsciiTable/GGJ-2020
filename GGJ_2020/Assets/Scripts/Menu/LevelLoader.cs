@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class LevelLoader : MonoBehaviour
 {
+    public static TextMeshProUGUI progression;
     public void Awake()
     {
+        progression = GameObject.FindGameObjectWithTag("ProgressChecker").GetComponent<TextMeshProUGUI>();
         GameObject[] objs = GameObject.FindGameObjectsWithTag("LevelLoader");
         if (objs.Length > 1)
         {
@@ -22,6 +25,7 @@ public class LevelLoader : MonoBehaviour
         }
         Tog.gameObject.GetComponent<Toggle>().isOn = ssd.fullAccessEnabled;
         LevelData[] temp = SaveSystem.LoadLevels();
+        SaveSystem.getAllLevels();
         if (temp == null)
         {
             SaveSystem.levelData = SaveSystem.getAllLevels();
@@ -43,8 +47,15 @@ public class LevelLoader : MonoBehaviour
         }
         else
             SaveSystem.levelData = temp;
-/*        foreach (LevelData l in SaveSystem.levelData)
-            Debug.Log(l.ToString());*/
+        /*        foreach (LevelData l in SaveSystem.levelData)
+                    Debug.Log(l.ToString());*/
+
+        progression.SetText(SaveSystem.completedLevelCount + "/" + SaveSystem.totalLevelCount);
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public static void UpdateProgressionText() {
+        SaveSystem.completedLevelCount++;
+        progression.SetText(SaveSystem.completedLevelCount + "/" + SaveSystem.totalLevelCount);
     }
 }
