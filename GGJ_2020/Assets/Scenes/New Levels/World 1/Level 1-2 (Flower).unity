@@ -4629,6 +4629,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[41].second.m_AllTileFlags
       value: 1073741825
       objectReference: {fileID: 0}
+    - target: {fileID: 762411770, guid: 0c681dc7fdaa216439d65fd43c81795e, type: 3}
+      propertyPath: tip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1433850201, guid: 0c681dc7fdaa216439d65fd43c81795e, type: 3}
       propertyPath: m_IsActive
       value: 0

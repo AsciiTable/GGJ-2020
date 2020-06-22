@@ -17,6 +17,7 @@ public class StageManager : MonoBehaviour
     private static List<List<GrowingPlant>> listSpreadingTotal = new List<List<GrowingPlant>>();
     private Texture2D cancelCursor;
     public GameObject dayCountDisplayer;
+    public GameObject tip;
 
     public static bool flowerGrowing = false;
 
@@ -25,6 +26,8 @@ public class StageManager : MonoBehaviour
         cancelCursor = (Texture2D)Resources.Load("cancel-icon");
         dayCountDisplayer = GameObject.FindGameObjectWithTag("dayCounter");
         dayCountDisplayer.GetComponent<TextMeshProUGUI>().SetText("Day " + StageManager.dayCount);
+        if(tip != null)
+            StartCoroutine(WaitForTip());
     }
     private void OnEnable()
     {
@@ -127,5 +130,10 @@ public class StageManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator WaitForTip() {
+        yield return new WaitForSeconds(0.2f);
+        Debug.Log("Waited for Tip");
     }
 }

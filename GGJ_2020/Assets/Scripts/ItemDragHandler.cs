@@ -18,7 +18,6 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 
     void Start() {
         img = this.gameObject.GetComponent<Image>();
-
     }
     
     public void OnDrag(PointerEventData eventData)
@@ -29,6 +28,7 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
+            
         if (!StageManager.flowerGrowing) { 
             transform.localPosition = Vector3.zero;
             if (seed.getQuantity() > 0) {
